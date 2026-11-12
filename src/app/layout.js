@@ -17,7 +17,7 @@ const montserrat = Montserrat({
 });
 
 export const metadata = {
-  title: "Gastro Moroccan — A Taste of Morocco",
+  title: "Gastro Moroccan - A Taste of Morocco",
   description:
     "Moroccan recipes, culinary traditions and stories from the Moroccan table.",
 };
