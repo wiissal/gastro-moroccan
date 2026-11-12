@@ -1,26 +1,84 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/* Fonts: the variables come from next/font in layout.js.
+   "inline" lets Tailwind use them even though they're defined on <html>. */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: var(--font-playfair), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+/* Brand tokens → Tailwind classes (bg-green, text-gold-text, border-line…) */
+@theme {
+  --color-ivory: #f7f3ea;
+  --color-sand: #ede5d6;
+  --color-green: #1f3a2e;
+  --color-green-dark: #152a21;
+  --color-gold: #b08d57;       /* decorative only */
+  --color-gold-text: #7e6034;  /* readable gold for text */
+  --color-ink: #1e1e1c;
+  --color-ink-soft: #55534d;
+  --color-line: rgb(176 141 87 / 0.25);
+
+  --shadow-card: 0 10px 30px rgb(31 58 46 / 0.12);
+}
+
+/* Base styles for plain HTML elements */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ivory font-body text-ink antialiased;
+    line-height: 1.65;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading font-medium text-green;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+
+  h1 { font-size: clamp(2.5rem, 1.6rem + 4.5vw, 5rem); }
+  h2 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3.25rem); }
+  h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold);
+    outline-offset: 3px;
+  }
+
+  ::selection {
+    background-color: var(--color-green);
+    color: var(--color-ivory);
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom utility: the small gold uppercase label */
+@utility eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-gold-text);
+}
+
+/* Respect users who turn off animations */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
