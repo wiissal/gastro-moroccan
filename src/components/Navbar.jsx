@@ -33,7 +33,7 @@ export default function Navbar() {
           onClick={closeMenu}
         >
           <Image src="/logo.svg" alt="" width={36} height={36} />
-          <span>Gastro Moroccan</span>
+          <span>Moroccan Gastronomy</span>
         </Link>
 
         {/* Hamburger: below 1024px only */}

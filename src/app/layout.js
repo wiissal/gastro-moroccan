@@ -25,7 +25,9 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}
+          suppressHydrationWarning // browser extensions often add attributes to <html>
+>
       <body>
         <Navbar />
         {children}
