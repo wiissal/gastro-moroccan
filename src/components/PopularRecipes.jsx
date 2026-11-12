@@ -8,10 +8,10 @@ export default function PopularRecipes() {
     <section
       id="recipes"
       aria-labelledby="recipes-title"
-      className="scroll-mt-20 bg-sand/50 py-24"
-    >
+      className="scroll-mt-20 bg-sand/50 py-14 md:py-20"
+    > 
       <div className="mx-auto max-w-300 px-6 md:px-10">
-        <Reveal className="mx-auto mb-14 flex max-w-2xl flex-col items-center gap-4 text-center">
+        <Reveal className="mx-auto mb-10 flex max-w-2xl flex-col items-center gap-4 text-center md:mb-12">
           <span className="eyebrow">From the Moroccan table</span>
           <h2 id="recipes-title">
             Popular <em>recipes</em>
