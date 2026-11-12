@@ -6,7 +6,7 @@ import pastries from "@/assets/images/hero/hero-pastries.jpg";
 import couscous from "@/assets/images/hero/hero-couscous.jpg";
 import mintTea from "@/assets/images/hero/hero-mint-tea.jpg";
 import harira from "@/assets/images/hero/hero-harira.jpg";
-
+import chebakia from "@/assets/images/hero/hero-chebakia.jpg";
 // Cards travel left → right along the hero arc, in this order.
 export const HERO_CARDS = [
   {
@@ -14,6 +14,12 @@ export const HERO_CARDS = [
     title: "Msemen & Amlou",
     image: msemen,
     alt: "Golden square msemen flatbreads served with honey and almonds",
+  },
+    {
+    id: "chebakia",
+    title: "Chebakia",
+    image: chebakia,
+    alt: "Flower-shaped chebakia cookies coated in honey and sesame seeds",
   },
   {
     id: "pastilla",
