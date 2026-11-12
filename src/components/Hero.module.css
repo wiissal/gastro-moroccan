@@ -49,12 +49,12 @@
 
 @media (max-width: 768px) {
   .arc {
-    height: 320px;
+    height: 230px;
   }
 
   .card {
-    width: 130px;
-    offset-path: path("M 260 320 Q 600 -100 940 320");
+    width: 120px;
+    offset-path: path("M 80 330 Q 600 -150 1120 330");
   }
 }
 
