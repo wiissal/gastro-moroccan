@@ -14,7 +14,7 @@
   top: 0;
   left: 0;
   width: 170px;
-  offset-path: path("M -120 380 Q 600 -80 1320 380");
+  offset-path: path("M -200 400 Q 600 -100 1400 400");
   offset-rotate: auto;
   animation: travel var(--travel-duration) linear infinite;
   animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
