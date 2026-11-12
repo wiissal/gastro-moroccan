@@ -1,0 +1,66 @@
+/* The stage the cards travel across */
+.arc {
+  --travel-duration: 40s;
+  position: relative;
+  left: 50%;
+  width: 1200px;
+  height: 360px;
+  translate: -50% 0;
+}
+
+/* Each card follows the curved path */
+.card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  offset-path: path("M -120 380 Q 600 -80 1320 380");
+  offset-rotate: auto;
+  animation: travel var(--travel-duration) linear infinite;
+  animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
+  will-change: offset-distance, opacity;
+  transition: scale 600ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.arc:hover .card {
+  animation-play-state: paused;
+}
+
+.card:hover {
+  z-index: 2;
+  scale: 1.08;
+}
+
+.cardInner {
+  animation: enter 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 120ms) both;
+}
+
+@keyframes travel {
+  0% { offset-distance: 0%; opacity: 0; }
+  8% { opacity: 1; }
+  92% { opacity: 1; }
+  100% { offset-distance: 100%; opacity: 0; }
+}
+
+@keyframes enter {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 768px) {
+  .arc {
+    height: 320px;
+  }
+
+  .card {
+    width: 130px;
+    offset-path: path("M 260 320 Q 600 -100 940 320");
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card {
+    animation-name: none;
+    offset-distance: calc((var(--i) + 0.5) * 100% / var(--total));
+  }
+}
