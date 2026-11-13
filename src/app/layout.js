@@ -1,6 +1,7 @@
 import { Playfair_Display, Montserrat } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -24,13 +25,17 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // suppressHydrationWarning: browser extensions often add attributes to <html>
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}
-          suppressHydrationWarning // browser extensions often add attributes to <html>
->
+    <html
+      lang="en"
+      className={`${playfair.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
