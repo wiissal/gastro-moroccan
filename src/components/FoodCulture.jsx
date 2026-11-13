@@ -43,7 +43,7 @@ export default function FoodCulture() {
               alt="A Moroccan family table set with tagine, bread and mint tea"
               sizes="(max-width: 768px) 100vw, 50vw"
               placeholder="blur"
-              className="relative aspect-4/3 w-full rounded-xl object-cover"
+              className="relative aspect-4/3 w-full rounded-xl object-cover lg:aspect-3/2"
             />
           </Reveal>
 
@@ -75,7 +75,7 @@ export default function FoodCulture() {
         </div>
 
         {/* Traditions */}
-        <ul className="mt-12 grid gap-10 border-t border-line pt-10 sm:grid-cols-3 md:mt-14">
+        <ul className="mt-12 grid gap-10 border-t border-line pt-10 sm:grid-cols-3 md:mt-10 md: pt-8">
           {TRADITIONS.map(({ Icon, title, text }, index) => (
             <li key={title}>
               <Reveal delay={index * 0.1} className="flex flex-col gap-3">
