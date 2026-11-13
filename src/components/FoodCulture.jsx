@@ -27,7 +27,7 @@ export default function FoodCulture() {
     <section
       id="culture"
       aria-labelledby="culture-title"
-      className="scroll-mt-20 py-14 md:py-20"
+      className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20"
     >
       <div className="mx-auto max-w-300 px-6 md:px-10">
         {/* Featured story: image + text */}
@@ -47,9 +47,12 @@ export default function FoodCulture() {
             />
           </Reveal>
 
-          <Reveal delay={0.15} className="flex flex-col items-start gap-5">
+          <Reveal delay={0.15} className="flex flex-col items-start gap-4">
             <span className="eyebrow">Food culture</span>
-            <h2 id="culture-title">
+            <h2
+              id="culture-title"
+              className="text-[clamp(2rem,1.4rem+2vw,2.75rem)]"
+            >
               More than food. <em>A heritage</em> passed through generations.
             </h2>
             <p className="text-ink-soft">
@@ -72,11 +75,16 @@ export default function FoodCulture() {
         </div>
 
         {/* Traditions */}
-        <ul className="mt-16 grid gap-10 border-t border-line pt-12 sm:grid-cols-3">
+        <ul className="mt-12 grid gap-10 border-t border-line pt-10 sm:grid-cols-3 md:mt-14">
           {TRADITIONS.map(({ Icon, title, text }, index) => (
             <li key={title}>
               <Reveal delay={index * 0.1} className="flex flex-col gap-3">
-                <Icon size={28} strokeWidth={1.25} className="text-gold" aria-hidden="true" />
+                <Icon
+                  size={28}
+                  strokeWidth={1.25}
+                  className="text-gold"
+                  aria-hidden="true"
+                />
                 <h3 className="text-xl">{title}</h3>
                 <p className="text-sm text-ink-soft">{text}</p>
               </Reveal>
