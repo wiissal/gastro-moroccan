@@ -5,7 +5,7 @@ import Ingredients from "@/components/Ingredients";
 import About from "@/components/About";
 export default function Home() {
   return (
-    <main>
+    <main  className="scroll-mt-20">
       <Hero />
       <PopularRecipes />
       <FoodCulture />
