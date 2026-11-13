@@ -7,8 +7,7 @@ export default function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="overflow-hidden pt-4 pb-14 md:pb-16"
-    >
+      className="section-screen overflow-hidden pt-4 pb-14 md:pb-16">
       <ul className={styles.arc} style={{ "--total": HERO_CARDS.length }}>
         {HERO_CARDS.map((card, index) => (
           <li key={card.id} className={styles.card} style={{ "--i": index }}>

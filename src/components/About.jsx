@@ -7,7 +7,7 @@ export default function About() {
     <section
       id="about"
       aria-labelledby="about-title"
-      className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20"
+            className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20 lg:flex lg:min-h-[calc(100svh-4.75rem)] lg:flex-col lg:justify-center lg:pt-8 lg:pb-12"
     >
       <div className="mx-auto grid max-w-300 items-center gap-12 px-6 md:grid-cols-2 md:px-10 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
         {/* Text: left on desktop */}
@@ -47,7 +47,7 @@ export default function About() {
             alt="Hands preparing a traditional Moroccan dish"
             sizes="(max-width: 768px) 100vw, 45vw"
             placeholder="blur"
-            className="relative aspect-4/5 w-full rounded-xl object-cover"
+            className="relative aspect-4/5 w-full rounded-xl object-cover lg:aspect-square"
           />
         </Reveal>
       </div>

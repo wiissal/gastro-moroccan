@@ -1,35 +1,39 @@
 @import "tailwindcss";
 
-/* Fonts: the variables come from next/font in layout.js.
-   "inline" lets Tailwind use them even though they're defined on <html>. */
+/* Fonts from next/font (layout.js) */
 @theme inline {
-  --font-heading: var(--font-playfair), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-montserrat), "Helvetica Neue", Arial, sans-serif;
+  --font-heading: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+  --font-body: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+  --font-accent: var(--font-playfair), Georgia, serif;
 }
 
-/* Brand tokens → Tailwind classes (bg-green, text-gold-text, border-line…) */
+/* Brand tokens, named by ROLE, not by colour */
 @theme {
-  --color-ivory: #f7f3ea;
-  --color-sand: #ede5d6;
-  --color-green: #1f3a2e;
-  --color-green-dark: #152a21;
-  --color-gold: #b08d57;       /* decorative only */
-  --color-gold-text: #7e6034;  /* readable gold for text */
-  --color-ink: #1e1e1c;
-  --color-ink-soft: #55534d;
-  --color-line: rgb(176 141 87 / 0.25);
+  --color-surface: #ffffff;
+  --color-surface-alt: #f5f5f2;
+  --color-primary: #2d4a3b;
+  --color-primary-dark: #1f3529;
+  --color-accent: #e3a74a;       /* decoration only */
+  --color-accent-text: #8a5a12;  /* readable accent for small text */
+  --color-ink: #111111;
+  --color-ink-soft: #5b5b5b;
+  --color-line: #e5e5e0;
+    --color-accent: #e3a74a;
 
-  --shadow-card: 0 10px 30px rgb(31 58 46 / 0.12);
+  --color-stripe-sage: #7fa8a3;
+  --color-stripe-stone: #d8d6cb;
+  --color-stripe-night: #1c2a36;
+
+  --shadow-card: 0 10px 30px rgb(17 17 17 / 0.08);
 }
 
-/* Base styles for plain HTML elements */
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-ivory font-body text-ink antialiased;
+    @apply bg-surface font-body text-ink antialiased;
     line-height: 1.65;
   }
 
@@ -37,41 +41,48 @@
   h2,
   h3,
   h4 {
-    @apply font-heading font-medium text-green;
-    line-height: 1.15;
+    @apply font-heading font-semibold text-ink;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
     text-wrap: balance;
   }
 
-  h1 { font-size: clamp(2.5rem, 1.6rem + 4.5vw, 5rem); }
-  h2 { font-size: clamp(2rem, 1.5rem + 2.5vw, 3.25rem); }
-  h3 { font-size: clamp(1.5rem, 1.2rem + 1.2vw, 2rem); }
+  h1 { font-size: clamp(2.25rem, 1.5rem + 3.8vw, 4.25rem); }
+  h2 { font-size: clamp(1.75rem, 1.3rem + 2vw, 2.75rem); }
+  h3 { font-size: clamp(1.25rem, 1.1rem + 0.8vw, 1.6rem); }
+
+  /* Signature: italic words in headings use the serif accent, in green */
+  :is(h1, h2, h3) em {
+    font-family: var(--font-accent);
+    font-weight: 500;
+    letter-spacing: 0;
+    color: var(--color-primary);
+  }
 
   p {
     text-wrap: pretty;
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-gold);
+    outline: 2px solid var(--color-primary);
     outline-offset: 3px;
   }
 
   ::selection {
-    background-color: var(--color-green);
-    color: var(--color-ivory);
+    background-color: var(--color-primary);
+    color: var(--color-surface);
   }
 }
 
-/* Custom utility: the small gold uppercase label */
 @utility eyebrow {
   display: inline-block;
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: var(--color-gold-text);
+  color: var(--color-accent-text);
 }
 
-/* Respect users who turn off animations */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -81,4 +92,11 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+/* A section that fills one screen (minus the 76px navbar), content centred */
+@utility section-screen {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: (calc(100svh - 4.75rem), 50rem);
 }

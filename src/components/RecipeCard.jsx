@@ -12,7 +12,7 @@ export default function RecipeCard({ recipe }) {
             alt={recipe.alt}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
             placeholder="blur"
-            className="aspect-4/5 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+            className="aspect-4/5 w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105 lg:aspect-4/3"
           />
         </div>
 
@@ -21,7 +21,7 @@ export default function RecipeCard({ recipe }) {
           <h3 className="text-2xl transition-colors group-hover:text-green-dark">
             {recipe.title}
           </h3>
-          <p className="text-sm text-ink-soft">{recipe.description}</p>
+          <p className="line-clamp-2 text-sm text-ink-soft">{recipe.description}</p>
 
           <div className="mt-1 flex items-center gap-5 text-xs text-ink-soft">
             <span className="flex items-center gap-1.5">

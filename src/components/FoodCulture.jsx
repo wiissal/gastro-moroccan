@@ -27,7 +27,7 @@ export default function FoodCulture() {
     <section
       id="culture"
       aria-labelledby="culture-title"
-      className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20"
+      className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20 lg:section-screen"
     >
       <div className="mx-auto max-w-300 px-6 md:px-10">
         {/* Featured story: image + text */}
