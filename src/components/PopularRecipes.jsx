@@ -8,7 +8,7 @@ export default function PopularRecipes() {
     <section
       id="recipes"
       aria-labelledby="recipes-title"
-      className="scroll-mt-20 bg-sand/50 py-14 md:py-20"
+      className="scroll-mt-20 bg-sand/50 py-14 md:py-20 lg:section-screen "
     > 
       <div className="mx-auto max-w-300 px-6 md:px-10">
         <Reveal className="mx-auto mb-10 flex max-w-2xl flex-col items-center gap-4 text-center md:mb-12">

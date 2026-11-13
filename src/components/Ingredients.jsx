@@ -7,7 +7,7 @@ export default function Ingredients() {
     <section
       id="ingredients"
       aria-labelledby="ingredients-title"
-      className="scroll-mt-20 bg-sand/50 pt-12 pb-14 md:pt-14 md:pb-20"
+      className="scroll-mt-20 bg-sand/50 pt-12 pb-14 md:pt-14 md:pb-20 lg:section-screen"
     >
       <div className="mx-auto max-w-300 px-6 md:px-10">
         <Reveal className="mx-auto mb-10 flex max-w-2xl flex-col items-center gap-4 text-center md:mb-12">
