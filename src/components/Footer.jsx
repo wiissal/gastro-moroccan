@@ -19,7 +19,14 @@ export default async function Footer() {
   const year = await getCurrentYear();
 
   return (
-    <footer id="contact" className="scroll-mt-20 border-t border-gold/40 bg-green text-ivory">
+        <footer id="contact" className="scroll-mt-20 bg-primary text-surface">
+                {/* Decorative four-colour stripe */}
+      <div aria-hidden="true" className="grid h-1.5 grid-cols-4">
+        <span className="bg-accent" />
+        <span className="bg-stripe-sage" />
+        <span className="bg-stripe-stone" />
+        <span className="bg-stripe-night" />
+      </div>
       <div className="mx-auto grid max-w-300 gap-12 px-6 pt-16 pb-12 md:grid-cols-2 md:px-10 lg:grid-cols-[1.4fr_1fr_1fr_1.4fr]">
         {/* Brand */}
         <div className="flex flex-col gap-4">
