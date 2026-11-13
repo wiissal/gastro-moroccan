@@ -32,7 +32,7 @@ export default function PopularRecipes() {
           ))}
         </ul>
 
-        <Reveal className="mt-12 flex justify-center lg:mt-10">
+        <Reveal className="mt-10 flex justify-center lg:mt-6">
           <Button href="/recipes" variant="ghost">
             View all recipes
           </Button>
