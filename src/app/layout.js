@@ -25,16 +25,18 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  // suppressHydrationWarning: browser extensions often add attributes to <html>
   return (
-    <html lang="en" className={`${playfair.variable} ${montserrat.variable}`}
-          suppressHydrationWarning // browser extensions often add attributes to <html>
->
+    <html
+      lang="en"
+      className={`${playfair.variable} ${montserrat.variable}`}
+      suppressHydrationWarning
+    >
       <body>
         <Navbar />
         {children}
-        <Footer/>
+        <Footer />
       </body>
-    
     </html>
   );
 }
