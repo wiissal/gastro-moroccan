@@ -4,13 +4,8 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import { NAV_LINKS, SITE } from "@/data/site";
 
-const NAV_LINKS = [
-  { label: "Recipes", href: "/#recipes" },
-  { label: "Food Culture", href: "/#culture" },
-  { label: "Ingredients", href: "/#ingredients" },
-  { label: "About", href: "/#about" },
-];
 
 // Menu links, with a gold underline that grows on hover
 const linkClasses =
@@ -32,7 +27,7 @@ export default function Navbar() {
           onClick={closeMenu}
         >
           <Image src="/logo.svg" alt="" width={36} height={36} />
-          <span>Moroccan Gastronomy</span>
+          <span>{SITE.name}</span>
         </Link>
 
         {/* Hamburger: below 1024px only */}
