@@ -2,18 +2,31 @@ import harira from "@/assets/images/hero/hero-harira.jpg";
 import couscous from "@/assets/images/hero/hero-couscous.jpg";
 import tagine from "@/assets/images/hero/hero-tagine.jpg";
 import pastilla from "@/assets/images/hero/hero-pastilla.jpg";
+import chicken from "@/assets/images/hero/hero-chicken.jpg";
+import msemen from "@/assets/images/hero/hero-msemen.jpg";
+import mintTea from "@/assets/images/hero/hero-mint-tea.jpg";
+import chebakia from "@/assets/images/hero/hero-chebakia.jpg";
+import kaabElGhazal from "@/assets/images/hero/hero-pastries.jpg";
+
+// Sections of the /recipes page, in display order
+export const RECIPE_GROUPS = ["Moroccan dishes", "Pastries & sweets", "Breakfast & tea"];
 
 export const RECIPES = [
+  // ---------------------------------------------------------------------------
+  // Moroccan dishes
+  // ---------------------------------------------------------------------------
   {
     id: "harira",
     slug: "harira",
     title: "Harira",
+    group: "Moroccan dishes",
     category: "Soups",
+    popular: true,
     description:
       "The rich tomato, lentil and chickpea soup that breaks the fast at sunset.",
     prepTime: "1 h 30",
     difficulty: "Medium",
-    servings: 6,
+    servings: "6 servings",
     image: harira,
     alt: "A bowl of harira soup with chickpeas and fresh coriander",
     videoUrl: "https://www.youtube.com/results?search_query=moroccan+harira+recipe",
@@ -48,12 +61,14 @@ export const RECIPES = [
     id: "couscous",
     slug: "seven-vegetable-couscous",
     title: "Seven-Vegetable Couscous",
+    group: "Moroccan dishes",
     category: "Couscous",
+    popular: true,
     description:
       "Friday's family dish: steamed semolina crowned with seven vegetables.",
     prepTime: "2 h",
     difficulty: "Medium",
-    servings: 6,
+    servings: "6 servings",
     image: couscous,
     alt: "Couscous topped with seven vegetables",
     videoUrl: "https://www.youtube.com/results?search_query=moroccan+seven+vegetable+couscous",
@@ -86,15 +101,17 @@ export const RECIPES = [
     ],
   },
   {
-    id: "tagine",
+    id: "tagine-prunes",
     slug: "tagine-with-prunes",
     title: "Tagine with Prunes",
+    group: "Moroccan dishes",
     category: "Tagines",
+    popular: true,
     description:
       "Slow-cooked meat with sweet prunes, cinnamon and toasted almonds.",
     prepTime: "2 h 30",
     difficulty: "Medium",
-    servings: 6,
+    servings: "6 servings",
     image: tagine,
     alt: "Tagine with prunes and toasted almonds in a clay pot",
     videoUrl: "https://www.youtube.com/results?search_query=moroccan+lamb+tagine+with+prunes",
@@ -126,12 +143,14 @@ export const RECIPES = [
     id: "pastilla",
     slug: "chicken-pastilla",
     title: "Chicken Pastilla",
+    group: "Moroccan dishes",
     category: "Pastilla",
+    popular: true,
     description:
       "Crisp layers of warqa filled with spiced chicken, almonds and cinnamon sugar.",
     prepTime: "3 h",
     difficulty: "Advanced",
-    servings: 8,
+    servings: "8 servings",
     image: pastilla,
     alt: "Pastilla dusted with powdered sugar and cinnamon",
     videoUrl: "https://www.youtube.com/results?search_query=moroccan+chicken+pastilla+recipe",
@@ -163,7 +182,191 @@ export const RECIPES = [
       "Bake at 200 °C for 20 to 25 minutes, until crisp and golden. Dust with icing sugar and draw a lattice of cinnamon on top.",
     ],
   },
+  {
+    id: "chicken-tagine",
+    slug: "chicken-tagine-preserved-lemon-olives",
+    title: "Chicken Tagine with Lemon & Olives",
+    group: "Moroccan dishes",
+    category: "Tagines",
+    popular: false,
+    description:
+      "Tender chicken simmered with ginger and saffron, finished with preserved lemon and olives.",
+    prepTime: "1 h 30",
+    difficulty: "Medium",
+    servings: "4 servings",
+    image: chicken,
+    alt: "Moroccan chicken with green olives and fresh herbs",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+chicken+tagine+preserved+lemon+olives",
+    ingredients: [
+      "1 chicken (about 1.5 kg), cut into pieces",
+      "2 onions, grated",
+      "3 garlic cloves, crushed",
+      "1 tsp ground ginger",
+      "1 tsp ground turmeric",
+      "½ tsp black pepper",
+      "A pinch of saffron",
+      "1 bunch coriander and parsley, chopped",
+      "4 tbsp olive oil",
+      "1 preserved lemon, peel cut into strips",
+      "150 g green or violet olives",
+      "Salt",
+    ],
+    steps: [
+      "Mix the chicken with the onions, garlic, spices, half of the herbs and the olive oil. Leave to marinate for at least 30 minutes, or overnight in the fridge.",
+      "Cook the chicken in a pot or tagine over medium heat for 10 minutes, turning the pieces. Add 250 ml of water, cover and simmer for 45 minutes to 1 hour.",
+      "Add the preserved lemon, the olives and the rest of the herbs. Cook uncovered for 10 more minutes to reduce the sauce.",
+      "Serve hot, with fresh Moroccan bread to soak up the sauce.",
+    ],
+  },
+
+  // ---------------------------------------------------------------------------
+  // Pastries & sweets
+  // ---------------------------------------------------------------------------
+  {
+    id: "chebakia",
+    slug: "chebakia",
+    title: "Chebakia",
+    group: "Pastries & sweets",
+    category: "Pastries",
+    popular: false,
+    description:
+      "Flower-shaped sesame cookies, fried then soaked in honey and orange blossom water.",
+    prepTime: "3 h",
+    difficulty: "Advanced",
+    servings: "About 60 pieces",
+    image: chebakia,
+    alt: "Chebakia cookies coated in honey and sesame seeds",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+chebakia+recipe",
+    ingredients: [
+      "500 g flour",
+      "100 g toasted sesame seeds, ground",
+      "1 tsp ground anise",
+      "1 tsp ground cinnamon",
+      "A pinch of saffron, soaked in 2 tbsp orange blossom water",
+      "½ tsp salt",
+      "1 egg",
+      "60 ml vinegar",
+      "100 g butter, melted",
+      "60 ml olive oil",
+      "Oil for frying",
+      "1 kg honey",
+      "2 tbsp orange blossom water (for the honey)",
+      "Toasted sesame seeds, to decorate",
+    ],
+    steps: [
+      "Mix the flour, ground sesame, anise, cinnamon and salt. Add the egg, vinegar, melted butter, olive oil and saffron water, and knead into a firm, smooth dough, adding a little water if needed. Rest for 15 minutes.",
+      "Roll the dough out thinly (2 to 3 mm) and cut it into rectangles of about 8 × 6 cm. Make 4 parallel cuts in each rectangle, without cutting through the edges.",
+      "Thread every other strip over your fingers, then pinch and turn the dough to form the flower shape.",
+      "Fry the chebakia in medium-hot oil until deep golden brown.",
+      "Warm the honey with the orange blossom water. Plunge the fried chebakia into the hot honey for 3 to 5 minutes, drain, and sprinkle with sesame seeds.",
+    ],
+  },
+  {
+    id: "kaab-el-ghazal",
+    slug: "kaab-el-ghazal",
+    title: "Kaab el Ghazal",
+    group: "Pastries & sweets",
+    category: "Pastries",
+    popular: false,
+    description:
+      "Delicate crescent pastries filled with almond paste and orange blossom water.",
+    prepTime: "2 h 30",
+    difficulty: "Advanced",
+    servings: "About 40 pieces",
+    image: kaabElGhazal,
+    alt: "Crescent-shaped kaab el ghazal almond pastries",
+    videoUrl: "https://www.youtube.com/results?search_query=kaab+el+ghazal+gazelle+horns+recipe",
+    ingredients: [
+      "500 g blanched almonds",
+      "250 g sugar",
+      "2 tbsp butter, melted (filling)",
+      "3 tbsp orange blossom water (filling)",
+      "A pinch of ground mastic (gum arabic), optional",
+      "300 g flour",
+      "A pinch of salt",
+      "2 tbsp butter, melted (dough)",
+      "1 egg",
+      "3 tbsp orange blossom water (dough)",
+      "Water, as needed",
+    ],
+    steps: [
+      "Grind the almonds finely with the sugar. Add the melted butter, orange blossom water and mastic, and knead into a smooth paste. Shape it into small logs of about 8 cm with tapered ends.",
+      "For the dough, mix the flour, salt, butter, egg and orange blossom water, adding water little by little. Knead for about 10 minutes until very smooth and elastic, then rest for 30 minutes.",
+      "Roll the dough out very thinly. Place an almond log on it, fold the dough over, seal, and cut around it with a fluted cutter. Gently bend each pastry into a crescent.",
+      "Prick the pastries with a needle and bake at 180 °C for 12 to 15 minutes. They should stay pale, only lightly golden underneath.",
+    ],
+  },
+
+  // ---------------------------------------------------------------------------
+  // Breakfast & tea
+  // ---------------------------------------------------------------------------
+  {
+    id: "msemen",
+    slug: "msemen",
+    title: "Msemen",
+    group: "Breakfast & tea",
+    category: "Breakfast",
+    popular: false,
+    description:
+      "Flaky, square Moroccan pancakes, served warm with honey, butter or amlou.",
+    prepTime: "1 h",
+    difficulty: "Medium",
+    servings: "10 pieces",
+    image: msemen,
+    alt: "Golden square msemen flatbreads served with honey and almonds",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+msemen+recipe",
+    ingredients: [
+      "500 g fine flour",
+      "100 g fine semolina (dough)",
+      "1 tsp salt",
+      "1 tsp sugar",
+      "About 350 ml warm water",
+      "100 ml vegetable oil, for folding",
+      "50 g butter, softened",
+      "50 g fine semolina, for folding",
+      "Amlou, or honey and butter, to serve",
+    ],
+    steps: [
+      "Mix the flour, semolina, salt and sugar. Add the warm water little by little and knead for about 10 minutes, until the dough is very smooth and elastic.",
+      "Divide into 10 balls, coat them with oil and let them rest for 15 minutes.",
+      "On an oiled surface, flatten each ball until very thin and almost translucent. Dot with butter, sprinkle with semolina, then fold into thirds one way and into thirds the other way to make a square.",
+      "Let the squares rest for 5 minutes, then gently flatten each one to about double its size.",
+      "Cook on a hot griddle or frying pan for 2 to 3 minutes per side, until golden and flaky. Serve warm with amlou or honey.",
+    ],
+  },
+  {
+    id: "mint-tea",
+    slug: "moroccan-mint-tea",
+    title: "Moroccan Mint Tea",
+    group: "Breakfast & tea",
+    category: "Drinks",
+    popular: false,
+    description:
+      "Green tea, fresh mint and sugar, poured from high above, the gesture of welcome.",
+    prepTime: "10 min",
+    difficulty: "Easy",
+    servings: "6 servings",
+    image: mintTea,
+    alt: "Moroccan mint tea poured from a silver teapot",
+    videoUrl: "https://www.youtube.com/results?search_query=how+to+make+moroccan+mint+tea",
+    ingredients: [
+      "1 tbsp Chinese gunpowder green tea",
+      "1 large bunch fresh spearmint",
+      "3 to 5 tbsp sugar, to taste",
+      "1 litre boiling water",
+    ],
+    steps: [
+      "Put the tea in the teapot, add a small glass of boiling water, swirl, and pour it into a glass. Keep this first glass aside: it's the \"spirit\" of the tea.",
+      "Add a little more boiling water, swirl again and throw this water away. It removes the bitterness.",
+      "Pour the first glass back into the teapot. Add the mint and sugar, and fill with boiling water.",
+      "Heat gently for 3 to 5 minutes without boiling hard.",
+      "Pour a glass and return it to the teapot two or three times to mix. Then serve, pouring from high above to create a light foam.",
+    ],
+  },
 ];
+
+// Recipes shown on the homepage
+export const POPULAR_RECIPES = RECIPES.filter((recipe) => recipe.popular);
 
 export function getRecipeBySlug(slug) {
   return RECIPES.find((recipe) => recipe.slug === slug);
