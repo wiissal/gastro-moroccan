@@ -3,7 +3,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, ChefHat, Users, Play } from "lucide-react";
 import { RECIPES, getRecipeBySlug } from "@/data/recipes";
-
+import FeedbackForm from "@/components/FeedbackForm";
+ export const instant = false; //it tell next.js that this pageis allowed to wait for its url data
 // Pre-build one page per recipe at build time
 export function generateStaticParams() {
   return RECIPES.map((recipe) => ({ slug: recipe.slug }));
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }) {
 }
 
 export default async function RecipePage({ params }) {
-  const { slug } = await params;
+  const {slug} = await params;
   const recipe = getRecipeBySlug(slug);
 
   if (!recipe) notFound();
@@ -109,6 +110,20 @@ export default async function RecipePage({ params }) {
           </ol>
         </section>
       </div>
+            {/* Feedback */}
+      <section aria-labelledby="feedback-title" className="mt-20 border-t border-line pt-14">
+        <div className="mx-auto max-w-2xl">
+          <span className="eyebrow">Tried this recipe?</span>
+          <h2 id="feedback-title" className="mt-3 mb-3 text-3xl">
+            Share your <em>feedback</em>
+          </h2>
+          <p className="mb-8 text-ink-soft">
+            Tell us how it tasted, what you changed, or ask a question. Your message goes
+            straight to our kitchen.
+          </p>
+          <FeedbackForm recipeTitle={recipe.title} />
+        </div>
+      </section>
     </main>
   );
 }
