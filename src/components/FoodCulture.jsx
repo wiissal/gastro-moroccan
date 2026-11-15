@@ -61,7 +61,7 @@ export default function FoodCulture() {
               trade routes, and every region adds its own touch to the table.
             </p>
             <Link
-              href="/culture"
+              href="/stories/moroccan-gastronomy"
               className="group mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-green"
             >
               Read the story

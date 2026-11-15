@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Reveal from "@/components/Reveal";
 import aboutImage from "@/assets/images/about/about.jpg";
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export default function About() {
   return (
@@ -33,7 +35,22 @@ export default function About() {
             </p>
           </blockquote>
 
-          <p className="mt-2 font-heading text-lg italic text-gold-text">Wissal</p>
+                    <div className="mt-2 flex flex-wrap gap-x-8 gap-y-3">
+            <Link
+              href="/stories/history-of-moroccan-food"
+              className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
+            >
+              Read our history
+              <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+            </Link>
+            <Link
+              href="/stories/taste-and-cook-in-morocco"
+              className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
+            >
+              Taste &amp; cook in Morocco
+              <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+            </Link>
+          </div>
         </Reveal>
 
         {/* Photo: right on desktop */}
