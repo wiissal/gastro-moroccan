@@ -7,6 +7,13 @@ import msemen from "@/assets/images/hero/hero-msemen.jpg";
 import mintTea from "@/assets/images/hero/hero-mint-tea.jpg";
 import chebakia from "@/assets/images/hero/hero-chebakia.jpg";
 import kaabElGhazal from "@/assets/images/hero/hero-pastries.jpg";
+import zaalouk from "@/assets/images/recipes/zaalouk.jpg";
+import rfissa from "@/assets/images/recipes/rfissa.jpg";
+import keftaTagine from "@/assets/images/recipes/kefta-tagine.jpg";
+import ghriba from "@/assets/images/recipes/ghriba.jpg";
+import briouats from "@/assets/images/recipes/briouats.jpg";
+import baghrir from "@/assets/images/recipes/baghrir.jpg";
+import harcha from "@/assets/images/recipes/harcha.jpg";
 
 // Sections of the /recipes page, in display order
 export const RECIPE_GROUPS = ["Moroccan dishes", "Pastries & sweets", "Breakfast & tea"];
@@ -219,6 +226,117 @@ export const RECIPES = [
     ],
   },
 
+  {
+    id: "kefta-tagine",
+    slug: "kefta-tagine-with-eggs",
+    title: "Kefta Tagine with Eggs",
+    group: "Moroccan dishes",
+    category: "Tagines",
+    popular: false,
+    description:
+      "Spiced meatballs simmered in a rich tomato sauce, with eggs cooked on top.",
+    prepTime: "45 min",
+    difficulty: "Easy",
+    servings: "4 servings",
+    image: keftaTagine,
+    alt: "Kefta meatball tagine with tomato sauce and eggs",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+kefta+tagine+with+eggs",
+    ingredients: [
+      "500 g minced beef or lamb",
+      "1 small onion, grated",
+      "1 tsp paprika (meatballs)",
+      "1 tsp ground cumin (meatballs)",
+      "½ tsp black pepper",
+      "1 bunch parsley and coriander, chopped",
+      "5 ripe tomatoes, grated",
+      "2 garlic cloves, crushed",
+      "1 tsp paprika (sauce)",
+      "1 tsp ground cumin (sauce)",
+      "A pinch of chilli, optional",
+      "3 tbsp olive oil",
+      "4 eggs",
+      "Salt",
+    ],
+    steps: [
+      "Mix the minced meat with the onion, paprika, cumin, pepper, half of the herbs and a little salt. Shape into small balls.",
+      "In a tagine or deep pan, cook the tomatoes with the garlic, spices and olive oil for about 10 minutes.",
+      "Add the meatballs, cover and simmer for 15 to 20 minutes, turning them once.",
+      "Crack the eggs on top, cover again and cook for 5 to 7 minutes, until the whites are set. Sprinkle with the remaining herbs and serve with bread.",
+    ],
+  },
+  {
+    id: "rfissa",
+    slug: "rfissa",
+    title: "Rfissa",
+    group: "Moroccan dishes",
+    category: "Celebration dishes",
+    popular: false,
+    description:
+      "Shredded msemen soaked in a fragrant chicken, lentil and fenugreek broth.",
+    prepTime: "2 h 30",
+    difficulty: "Advanced",
+    servings: "6 servings",
+    image: rfissa,
+    alt: "Rfissa with chicken and lentils on shredded msemen",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+rfissa+recipe",
+    ingredients: [
+      "1 chicken, cut into pieces",
+      "3 onions, thinly sliced",
+      "1 tbsp ras el hanout",
+      "1 tsp ground ginger",
+      "1 tsp black pepper",
+      "½ tsp ground turmeric",
+      "A pinch of saffron",
+      "1 tsp fenugreek seeds (helba), soaked for 1 hour",
+      "150 g brown or green lentils, rinsed",
+      "1 small bunch coriander, tied",
+      "4 tbsp vegetable oil",
+      "2 tbsp smen or butter",
+      "8 msemen (or trid), torn into strips",
+      "Salt",
+    ],
+    steps: [
+      "Put the chicken, onions, spices, fenugreek, oil, smen and coriander in a large pot. Cook for 15 minutes, stirring, until the onions soften.",
+      "Add water to cover (about 1.5 litres), cover and simmer for 1 hour.",
+      "Add the lentils and cook for 30 to 40 minutes more, until the lentils are tender and the chicken is very soft.",
+      "Warm the msemen strips, arrange them on a large platter and pour the broth and lentils over them. Top with the chicken and onions, and serve extra broth on the side.",
+    ],
+  },
+  {
+    id: "zaalouk",
+    slug: "zaalouk",
+    title: "Zaalouk",
+    group: "Moroccan dishes",
+    category: "Salads",
+    popular: false,
+    description:
+      "A smoky aubergine and tomato salad with garlic and cumin, served warm or cold.",
+    prepTime: "45 min",
+    difficulty: "Easy",
+    servings: "4 servings",
+    image: zaalouk,
+    alt: "A bowl of zaalouk, cooked aubergine and tomato salad",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+zaalouk+recipe",
+    ingredients: [
+      "2 large aubergines",
+      "4 ripe tomatoes, peeled and chopped",
+      "3 garlic cloves, crushed",
+      "1 tsp paprika",
+      "1 tsp ground cumin",
+      "A pinch of chilli, optional",
+      "1 small bunch coriander and parsley, chopped",
+      "4 tbsp olive oil, plus extra to serve",
+      "Juice of ½ lemon, optional",
+      "Salt",
+    ],
+    steps: [
+      "Peel the aubergines in stripes and cut them into cubes. Steam or boil them for 10 to 15 minutes until very soft, then drain well.",
+      "In a large pan, heat the olive oil and cook the tomatoes, garlic and spices for about 10 minutes.",
+      "Add the aubergines and herbs. Mash with a fork or wooden spoon and cook for 15 to 20 minutes, stirring often, until thick and almost dry.",
+      "Finish with a drizzle of olive oil and a little lemon juice. Serve warm or cold with bread.",
+    ],
+  },
+
   // ---------------------------------------------------------------------------
   // Pastries & sweets
   // ---------------------------------------------------------------------------
@@ -297,6 +415,73 @@ export const RECIPES = [
     ],
   },
 
+  {
+    id: "ghriba",
+    slug: "almond-ghriba",
+    title: "Almond Ghriba",
+    group: "Pastries & sweets",
+    category: "Cookies",
+    popular: false,
+    description:
+      "Soft, crackled almond cookies rolled in icing sugar, perfect with mint tea.",
+    prepTime: "1 h",
+    difficulty: "Easy",
+    servings: "About 30 pieces",
+    image: ghriba,
+    alt: "Crackled almond ghriba cookies dusted with icing sugar",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+almond+ghriba+recipe",
+    ingredients: [
+      "300 g ground almonds",
+      "150 g icing sugar, plus extra for rolling",
+      "1 tsp baking powder",
+      "Zest of 1 lemon",
+      "2 eggs",
+      "1 tbsp butter, melted",
+      "1 tbsp orange blossom water",
+    ],
+    steps: [
+      "Mix the ground almonds, icing sugar, baking powder and lemon zest.",
+      "Add the eggs, melted butter and orange blossom water, and mix into a soft, slightly sticky dough. Chill for 30 minutes.",
+      "Roll into walnut-sized balls, coat them generously in icing sugar and place them on a lined tray. Press each one lightly.",
+      "Bake at 180 °C for 12 to 15 minutes, until the tops crack and the bases are lightly golden. Let them cool on the tray.",
+    ],
+  },
+  {
+    id: "briouats",
+    slug: "almond-briouats",
+    title: "Almond Briouats",
+    group: "Pastries & sweets",
+    category: "Pastries",
+    popular: false,
+    description:
+      "Crisp triangles of warqa filled with almond paste and dipped in honey.",
+    prepTime: "1 h 30",
+    difficulty: "Medium",
+    servings: "About 30 pieces",
+    image: briouats,
+    alt: "Golden almond briouats glazed with honey and sesame seeds",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+almond+briouats+recipe",
+    ingredients: [
+      "300 g blanched almonds",
+      "100 g sugar",
+      "1 tsp ground cinnamon",
+      "2 tbsp butter, softened",
+      "2 tbsp orange blossom water (filling)",
+      "10 sheets of warqa (or filo pastry)",
+      "Melted butter, for sealing",
+      "Oil for frying",
+      "500 g honey",
+      "1 tbsp orange blossom water (honey)",
+      "Toasted sesame seeds, to decorate",
+    ],
+    steps: [
+      "Toast the almonds until golden, then grind them with the sugar and cinnamon. Mix in the butter and orange blossom water to make a paste.",
+      "Cut the warqa into strips about 6 cm wide. Place a teaspoon of filling at one end and fold into triangles. Seal the end with a little melted butter.",
+      "Fry in medium-hot oil until golden, or brush with butter and bake at 180 °C for about 15 minutes.",
+      "Warm the honey with the orange blossom water. Dip the briouats in it for 1 to 2 minutes, drain, and sprinkle with sesame seeds.",
+    ],
+  },
+
   // ---------------------------------------------------------------------------
   // Breakfast & tea
   // ---------------------------------------------------------------------------
@@ -361,6 +546,70 @@ export const RECIPES = [
       "Pour the first glass back into the teapot. Add the mint and sugar, and fill with boiling water.",
       "Heat gently for 3 to 5 minutes without boiling hard.",
       "Pour a glass and return it to the teapot two or three times to mix. Then serve, pouring from high above to create a light foam.",
+    ],
+  },
+  {
+    id: "baghrir",
+    slug: "baghrir",
+    title: "Baghrir",
+    group: "Breakfast & tea",
+    category: "Breakfast",
+    popular: false,
+    description:
+      "The \"thousand-hole\" semolina pancakes, soaked in warm honey and butter.",
+    prepTime: "1 h",
+    difficulty: "Easy",
+    servings: "About 15 pancakes",
+    image: baghrir,
+    alt: "A stack of baghrir pancakes with honey and butter",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+baghrir+recipe",
+    ingredients: [
+      "250 g fine semolina",
+      "50 g flour",
+      "1 tbsp instant yeast",
+      "1 tsp sugar",
+      "½ tsp salt",
+      "About 500 ml warm water",
+      "1 tsp baking powder",
+      "100 g butter and 100 g honey, melted together, to serve",
+    ],
+    steps: [
+      "Blend the semolina, flour, yeast, sugar, salt and warm water for 2 to 3 minutes, until the batter is smooth and runny, like thin cream.",
+      "Leave to rest for 30 minutes, until bubbly, then stir in the baking powder.",
+      "Heat a non-stick pan over medium heat. Pour in a small ladle of batter and cook on one side only, without flipping, until the surface is covered in holes and dry (2 to 3 minutes).",
+      "Let each pancake cool on a clean towel, without stacking them while hot.",
+      "Serve drizzled with the warm honey and butter.",
+    ],
+  },
+  {
+    id: "harcha",
+    slug: "harcha",
+    title: "Harcha",
+    group: "Breakfast & tea",
+    category: "Breakfast",
+    popular: false,
+    description:
+      "Buttery semolina flatbread, crisp outside and tender inside, cooked in a pan.",
+    prepTime: "40 min",
+    difficulty: "Easy",
+    servings: "About 8 pieces",
+    image: harcha,
+    alt: "Golden harcha semolina flatbreads",
+    videoUrl: "https://www.youtube.com/results?search_query=moroccan+harcha+recipe",
+    ingredients: [
+      "250 g fine semolina",
+      "1 tbsp sugar",
+      "1 tsp baking powder",
+      "½ tsp salt",
+      "60 g butter, melted",
+      "About 150 ml milk",
+      "Coarse semolina, for coating",
+    ],
+    steps: [
+      "Mix the semolina, sugar, baking powder and salt. Rub in the melted butter until the mixture looks like wet sand.",
+      "Add the milk little by little until the dough just holds together. Rest for 10 minutes.",
+      "Shape into flat discs about 1 cm thick and coat both sides in coarse semolina.",
+      "Cook in a dry pan over low to medium heat for 5 to 6 minutes per side, until golden. Serve warm with butter, honey, jam or cheese.",
     ],
   },
 ];
