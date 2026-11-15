@@ -9,13 +9,16 @@ export default function About() {
     <section
       id="about"
       aria-labelledby="about-title"
-            className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20 lg:flex lg:min-h-[calc(100svh-4.75rem)] lg:flex-col lg:justify-center lg:pt-8 lg:pb-12"
+      className="scroll-mt-20 pt-12 pb-14 md:pt-14 md:pb-20 lg:flex lg:min-h-[calc(100svh-4.75rem)] lg:flex-col lg:justify-center lg:pt-8 lg:pb-12"
     >
       <div className="mx-auto grid max-w-300 items-center gap-12 px-6 md:grid-cols-2 md:px-10 lg:grid-cols-[1.2fr_1fr] lg:gap-20">
         {/* Text: left on desktop */}
         <Reveal className="flex flex-col items-start gap-4">
           <span className="eyebrow">Our story</span>
-          <h2 id="about-title" className="text-[clamp(2rem,1.4rem+2vw,2.75rem)]">
+          <h2
+            id="about-title"
+            className="text-[clamp(2rem,1.4rem+2vw,2.75rem)]"
+          >
             Sharing the <em>Moroccan table</em> with the world
           </h2>
           <p className="text-ink-soft">
@@ -25,7 +28,8 @@ export default function About() {
             traditions behind them, and the ingredients that make them sing.
           </p>
           <p className="text-ink-soft">
-            Every dish has a story, and every story deserves a seat at the table.
+            Every dish has a story, and every story deserves a seat at the
+            table.
           </p>
 
           <blockquote className="mt-4 border-l-2 border-gold pl-5">
@@ -35,20 +39,28 @@ export default function About() {
             </p>
           </blockquote>
 
-                    <div className="mt-2 flex flex-wrap gap-x-8 gap-y-3">
+          <div className="mt-2 flex flex-wrap gap-x-8 gap-y-3">
             <Link
               href="/stories/history-of-moroccan-food"
               className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
             >
-              Read our history
-              <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+              Travel through centuries of flavour
+              <ArrowRight
+                size={16}
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
             <Link
               href="/stories/taste-and-cook-in-morocco"
               className="group inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary"
             >
               Taste &amp; cook in Morocco
-              <ArrowRight size={16} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+              <ArrowRight
+                size={16}
+                aria-hidden="true"
+                className="transition-transform group-hover:translate-x-1"
+              />
             </Link>
           </div>
         </Reveal>

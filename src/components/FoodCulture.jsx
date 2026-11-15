@@ -64,7 +64,7 @@ export default function FoodCulture() {
               href="/stories/moroccan-gastronomy"
               className="group mt-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-green"
             >
-              Read the story
+              Discover the flavours of Morocco
               <ArrowRight
                 size={16}
                 aria-hidden="true"
