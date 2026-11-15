@@ -3,7 +3,7 @@ export const SITE = {
   name: "Moroccan Gastronomy",
   tagline: "A Taste of Morocco",
   description: "Recipes, traditions and stories from the Moroccan table.",
-  email: "hello@gastromoroccan.com",
+  email: "contact@gastromoroccan.com",
   socials: [
     { label: "Instagram", href: "https://www.instagram.com/" },
     { label: "Pinterest", href: "https://www.pinterest.com/" },
