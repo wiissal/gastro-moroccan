@@ -1,5 +1,5 @@
 "use server";
-
+import { Resend } from "resend";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export async function sendFeedback(previousState, formData) {
@@ -33,10 +33,10 @@ export async function sendFeedback(previousState, formData) {
   }
 
   try{
-    const resend  = new Resend(process.env.RESEND_API_KEY);
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
     const {error} = await resend.emails.send({
-      from : "Moroccan Gastronomy < onboarding@resend.dev>",
+      from : "Moroccan Gastronomy <onboarding@resend.dev>",
       to : process.env.FEEDBACK_TO_EMAIL,
       replyTo : email, //if answer the email will be sent to the user who wrote the feedback
       subject: `New feedback on ${recipe}`,
