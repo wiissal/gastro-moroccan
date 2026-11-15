@@ -1,4 +1,4 @@
-import { RECIPES } from "@/data/recipes";
+import { POPULAR_RECIPES } from "@/data/recipes";
 import RecipeCard from "@/components/RecipeCard";
 import Reveal from "@/components/Reveal";
 import Button from "@/components/Button";
@@ -23,7 +23,7 @@ export default function PopularRecipes() {
         </Reveal>
 
         <ul className="grid gap-x-8 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-          {RECIPES.map((recipe, index) => (
+          {POPULAR_RECIPES.map((recipe, index) => (
             <li key={recipe.id}>
               <Reveal delay={index * 0.1}>
                 <RecipeCard recipe={recipe} />

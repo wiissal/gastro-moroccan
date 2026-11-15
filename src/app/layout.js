@@ -20,11 +20,13 @@ const playfair = Playfair_Display({
 });
 
 export const metadata = {
-  title: "Moroccan Gastronomy- A Taste of Morocco",
+  title: {
+    default: "Moroccan Gastronomy — A Taste of Morocco",
+    template: "%s — Moroccan Gastronomy",
+  },
   description:
     "Moroccan recipes, culinary traditions and stories from the Moroccan table.",
 };
-
 export default function RootLayout({ children }) {
   // suppressHydrationWarning: browser extensions often add attributes to <html>
   return (
