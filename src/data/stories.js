@@ -9,14 +9,14 @@ export const STORIES = [
     title: "What is Moroccan gastronomy?",
     excerpt:
       "Regions, techniques and flavours: how food shapes everyday life at the Moroccan table.",
-    readTime: "6 min read",
+    readTime: "5 min read",
     image: cultureTable,
     alt: "A Moroccan family table set with several tagines and dishes",
     sections: [
       {
-        heading: "A cuisine of welcome",
+        heading: "A welcome cuisine",
         paragraphs: [
-          "In Morocco, food is never only about eating. It is how a family welcomes a guest, how neighbours share good news, and how a whole country pauses at sunset during Ramadan. Before anything else, Moroccan gastronomy is a way of saying: you are welcome here.",
+          "In Morocco, food is never only about eating. It is how a family welcomes a guest, how neighbours share good news, and how a whole country pauses at sunset during Ramadan. Before anything else, Moroccan gastronomy is a way of saying: you are welcome here and we are happy to have you with us.",
           "Meals are shared. Dishes are often placed in the centre of the table and eaten together, with bread used to scoop up the sauce. Mint tea is offered to every visitor, and refusing it is almost impolite.",
         ],
       },
@@ -33,9 +33,9 @@ export const STORIES = [
           "Each region adds its own touch to the Moroccan table:",
         ],
         list: [
-          "Fes: refined city cooking with Andalusian roots, famous for pastilla and delicate pastries.",
+          "Fes: refined city cooking with Andalusian roots, famous for khlii (Salted Dried Meat) and delicate pastries.",
           "Marrakech: home of tanjia, meat slow-cooked for hours in a clay jar.",
-          "The north (Tangier, Tetouan, Chefchaouen): Andalusian and Mediterranean influences, olive oil and fish.",
+          "The north (Tangier, Tetouan, Chefchaouen): Andalusian and Mediterranean influences,Bissara ,olive oil and fish.",
           "The Atlantic coast (Essaouira, Safi): grilled sardines and fresh seafood.",
           "The Souss region: argan oil and amlou.",
           "The south and the Sahara: hearty, simple dishes such as madfouna, a stuffed bread baked in the sand.",
@@ -44,14 +44,14 @@ export const STORIES = [
       {
         heading: "The techniques",
         paragraphs: [
-          "Moroccan cooking is patient. Tagines simmer slowly so the meat becomes tender and the sauce rich. Couscous is steamed several times above the broth until every grain is light. Pastilla and briouats rely on warqa, a pastry as thin as paper, made by hand on a hot plate.",
+          "Moroccan cooking is patient and cooked with love. Tagines simmer slowly so the meat becomes tender and the sauce rich. Couscous is steamed several times above the broth until every grain is light. Pastilla and briouats rely on warqa, a pastry as thin as paper, made by hand on a hot plate.",
           "Preserving is an art too: lemons are salted for weeks, olives are cured, and meat can be preserved as khlii for months.",
         ],
       },
       {
         heading: "The flavours",
         paragraphs: [
-          "The signature of Moroccan cuisine is balance: sweet with savoury, as in tagine with prunes or pastilla dusted with cinnamon sugar; warm spices like cumin, ginger, cinnamon and saffron; fresh coriander and parsley; and the bright, salty note of preserved lemon. Spices are used to build depth, not to make dishes fiery.",
+          "The signature of Moroccan cuisine is balance: sweet with savoury, as in tagine with prunes or pastilla dusted with cinnamon sugar and almonds; warm spices like cumin, ginger, cinnamon and saffron; fresh coriander and parsley; and the bright, salty note of preserved lemon. Spices are used to build depth, not to make dishes fiery.",
         ],
       },
     ],
@@ -115,22 +115,22 @@ export const STORIES = [
           "The best Moroccan food is often found far from fancy restaurants: in family homes, small neighbourhood eateries and street stalls. Look for places that are busy with locals, and order what everyone else is eating.",
         ],
         list: [
-          "Jemaa el-Fna in Marrakech: every evening the square fills with food stalls serving harira, grilled meats, snails and more.",
+          "Jemaa el-Fna in Marrakech: every evening the square fills with food stalls serving harira, grilled meats, snails and more and with people competing who's gonna win your heart with his food.",
           "Tanjia in Marrakech: a speciality traditionally slow-cooked for hours in the embers of a hammam furnace.",
           "Grilled sardines and fresh fish at the port of Essaouira.",
-          "Bissara (fava bean soup) on a cold morning in the medinas of the north and of Fes.",
+          "Bissara (fava bean soup) with some olive oil and mint tea on a cold morning in the medinas of the north and of Fes.",
         ],
       },
       {
         heading: "Visit the markets",
         paragraphs: [
-          "Walking through a souk is a lesson in Moroccan cooking: pyramids of spices, olives of every colour, preserved lemons, fresh herbs and honey. Ask questions, smell everything, and take a little ras el hanout home with you.",
+          "Walking through a souk is a lesson in Moroccan cooking: pyramids of spices, olives of every colour, preserved lemons, fresh vegetables,fruits,herbs and honey . Ask questions, smell everything, and take a little ras el hanout home with you.",
         ],
       },
       {
         heading: "Take a cooking class",
         paragraphs: [
-          "Many riads and cooking schools in Marrakech, Fes and Essaouira offer cooking classes, often starting with a visit to the market. In a few hours you can learn to make a tagine, a salad, bread and mint tea, then share the meal you cooked.",
+          "Many riads and cooking schools in Marrakech, Fes and Essaouira offer cooking classes, often starting with a visit to the market. In a few hours you can learn to make a tagine, a salad, bread and mint tea, then share the meal you cooked with people you just met and taste their dishes.",
         ],
       },
       {
