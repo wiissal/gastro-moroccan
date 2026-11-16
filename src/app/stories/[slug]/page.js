@@ -76,6 +76,22 @@ export default async function StoryPage({ params }) {
                   ))}
                 </ul>
               )}
+                            {section.image && (
+                <figure className="mt-2">
+                  <Image
+                    src={section.image}
+                    alt={section.imageAlt}
+                    sizes="(max-width: 768px) 100vw, 768px"
+                    placeholder="blur"
+                    className="aspect-3/2 w-full rounded-xl object-cover"
+                  />
+                  {section.caption && (
+                    <figcaption className="mt-3 text-center text-sm italic text-ink-soft">
+                      {section.caption}
+                    </figcaption>
+                  )}
+                </figure>
+              )}
             </section>
           ))}
         </div>
