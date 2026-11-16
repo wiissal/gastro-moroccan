@@ -4,11 +4,7 @@ export const SITE = {
   tagline: "A Taste of Morocco",
   description: "Recipes, traditions and stories from the Moroccan table.",
   email: "contact@gastromoroccan.com",
-  socials: [
-    { label: "Instagram", href: "https://www.instagram.com/" },
-    { label: "Pinterest", href: "https://www.pinterest.com/" },
-    { label: "TikTok", href: "https://www.tiktok.com/" },
-  ],
+ 
 };
 
 export const NAV_LINKS = [
