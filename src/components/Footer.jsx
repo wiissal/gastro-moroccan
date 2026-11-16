@@ -62,13 +62,7 @@ export default async function Footer() {
                 {SITE.email}
               </a>
             </li>
-            {SITE.socials.map((social) => (
-              <li key={social.label}>
-                <a href={social.href} target="_blank" rel="noopener noreferrer" className={linkClasses}>
-                  {social.label}
-                </a>
-              </li>
-            ))}
+           
           </ul>
         </div>
 
