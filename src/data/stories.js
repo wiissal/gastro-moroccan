@@ -1,6 +1,15 @@
 import cultureTable from "@/assets/images/culture/culture-table.jpg";
 import aboutImage from "@/assets/images/about/about.jpg";
 import mintTea from "@/assets/images/hero/hero-mint-tea.jpg";
+import dailyBread from "@/assets/images/stories/daily-bread.jpg";
+import spiceSouk from "@/assets/images/stories/spice-souk.jpg";
+import jemaaElFna from "@/assets/images/stories/jemaa-el-fna.jpg";
+import amazighRoots from "@/assets/images/stories/amazigh-roots.jpg";
+import andalusian from "@/assets/images/stories/andalusian.jpg";
+import regions from "@/assets/images/stories/regions.jpg";
+import cookingClass from "@/assets/images/stories/cooking-class.jpg";
+import techniques from "@/assets/images/stories/techniques.jpg";
+import Souk from "@/assets/images/stories/souk.jpg";
 
 export const STORIES = [
   {
@@ -26,12 +35,13 @@ export const STORIES = [
           "Bread (khobz) is on the table at almost every meal, and many families still bake it at home or take it to the neighbourhood oven. Breakfast often means msemen, baghrir or harcha with honey, butter, olive oil and amlou.",
           "Friday is couscous day: families gather after the midday prayer around one large dish. During Ramadan, the fast is broken with dates, milk, harira and chebakia, and celebrations like weddings and Eid bring out pastilla, tagines and trays of pastries.",
         ],
+        image: dailyBread,
+        imageAlt: "Round loaves of Moroccan bread on a table",
+        caption: "Khobz: on the table at almost every meal.",
       },
       {
         heading: "One country, many kitchens",
-        paragraphs: [
-          "Each region adds its own touch to the Moroccan table:",
-        ],
+        paragraphs: ["Each region adds its own touch to the Moroccan table:"],
         list: [
           "Fes: refined city cooking with Andalusian roots, famous for khlii (Salted Dried Meat) and delicate pastries.",
           "Marrakech: home of tanjia, meat slow-cooked for hours in a clay jar.",
@@ -40,6 +50,9 @@ export const STORIES = [
           "The Souss region: argan oil and amlou.",
           "The south and the Sahara: hearty, simple dishes such as madfouna, a stuffed bread baked in the sand.",
         ],
+        image: regions,
+        imageAlt: "Traditional Moroccan dishes from different regions",
+        caption: "From Fes to the Sahara, every region adds its own touch.",
       },
       {
         heading: "The techniques",
@@ -47,6 +60,10 @@ export const STORIES = [
           "Moroccan cooking is patient and cooked with love. Tagines simmer slowly so the meat becomes tender and the sauce rich. Couscous is steamed several times above the broth until every grain is light. Pastilla and briouats rely on warqa, a pastry as thin as paper, made by hand on a hot plate.",
           "Preserving is an art too: lemons are salted for weeks, olives are cured, and meat can be preserved as khlii for months.",
         ],
+        image: techniques,
+        imageAlt: "Couscous steaming in a traditional couscoussier",
+        caption:
+          "Couscous is steamed again and again until every grain is light.",
       },
       {
         heading: "The flavours",
@@ -72,18 +89,29 @@ export const STORIES = [
           "The foundations of Moroccan cuisine come from the Amazigh (Berber) peoples of North Africa. Couscous, slow-cooked stews in clay pots, flatbreads, argan oil and honey were part of their cooking long before any outside influence.",
           "In 2020, UNESCO added the knowledge and practices around couscous to its list of the Intangible Cultural Heritage of Humanity, shared by Morocco, Algeria, Mauritania and Tunisia.",
         ],
+        image: amazighRoots,
+        imageAlt: "Hands rolling couscous grains in a large wooden bowl",
+        caption: "Couscous: an Amazigh heritage shared across North Africa.",
       },
       {
         heading: "Arab spices and trade routes",
         paragraphs: [
           "From the 7th century, Arab culture brought new ingredients and ideas: spices such as cinnamon, ginger and saffron, and the love of mixing sweet and savoury. Caravans crossing the Sahara and sea routes across the Mediterranean made Moroccan cities great markets for spices, dried fruit and nuts.",
         ],
+        image: spiceSouk,
+        imageAlt: "Pyramids of colourful spices in a Moroccan souk",
+        caption: "Spices travelled for centuries before reaching our tables.",
       },
       {
         heading: "Andalusian refinement",
         paragraphs: [
           "When Muslims and Jews left the Iberian Peninsula, especially around and after 1492, many settled in Moroccan cities like Fes, Tetouan and Rabat. They brought a refined way of cooking, with almonds, delicate pastries, olive oil and elaborate dishes. Pastilla is often linked to this heritage.",
         ],
+        image: andalusian,
+        imageAlt:
+          "Andalusian-style architecture with zellige and carved plaster",
+        caption:
+          "In Fes and Tetouan, Andalusian heritage lives on, on the table too.",
       },
       {
         heading: "Moroccan Jewish cuisine",
@@ -120,18 +148,30 @@ export const STORIES = [
           "Grilled sardines and fresh fish at the port of Essaouira.",
           "Bissara (fava bean soup) with some olive oil and mint tea on a cold morning in the medinas of the north and of Fes.",
         ],
+        image: jemaaElFna,
+        imageAlt:
+          "Food stalls and smoke rising over Jemaa el-Fna square at night",
+        caption: "Every evening, Jemaa el-Fna turns into an open-air kitchen.",
       },
       {
         heading: "Visit the markets",
         paragraphs: [
           "Walking through a souk is a lesson in Moroccan cooking: pyramids of spices, olives of every colour, preserved lemons, fresh vegetables,fruits,herbs and honey . Ask questions, smell everything, and take a little ras el hanout home with you.",
         ],
+        image: Souk,
+        imageAlt:
+          "Spices, olives , vegetables, fruits and herbs on display in a Moroccan market called Souk",
+        caption:
+          "Smell everything, ask questions, and take a little ras el hanout home.",
       },
       {
         heading: "Take a cooking class",
         paragraphs: [
           "Many riads and cooking schools in Marrakech, Fes and Essaouira offer cooking classes, often starting with a visit to the market. In a few hours you can learn to make a tagine, a salad, bread and mint tea, then share the meal you cooked with people you just met and taste their dishes.",
         ],
+        image: cookingClass,
+        imageAlt: "Hands preparing a Moroccan dish during a cooking class",
+        caption: "The best souvenir: a recipe you cooked yourself.",
       },
       {
         heading: "Food tours and museums",
