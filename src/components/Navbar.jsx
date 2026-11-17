@@ -22,7 +22,7 @@ export default function Navbar() {
   // close on Escape. When it closes: undo all of that and return focus.
   useEffect(() => {
     if (!isOpen) return;
-
+    const openButton = openButtonRef.current;
     const previousOverflow = document.body.style.overflow;
     document.body.style.overflow = "hidden";
     closeButtonRef.current?.focus();
@@ -35,7 +35,7 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
-      openButtonRef.current?.focus();
+      openButtonRef?.focus();
     };
   }, [isOpen]);
 
