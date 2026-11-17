@@ -21,8 +21,7 @@ export default function Ingredients() {
           </p>
         </Reveal>
 
-        <ul className="grid grid-cols-2 gap-x-6 gap-y-10 sm:grid-cols-3 lg:grid-cols-6">
-          {INGREDIENTS.map((ingredient, index) => (
+        <ul className="grid grid-cols-3 gap-x-4 gap-y-10 sm:grid-cols-4 lg:grid-cols-6 lg:gap-x-6">          {INGREDIENTS.map((ingredient, index) => (
             <li key={ingredient.id}>
               <Reveal delay={index * 0.08}>
                 <IngredientCard ingredient={ingredient} />
