@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { CircleCheck } from "lucide-react";
 import { sendFeedback } from "@/actions/sendFeedback";
 
@@ -22,6 +22,12 @@ function FieldError({ id, message }) {
 
 export default function FeedbackForm({ recipeTitle }) {
   const [state, formAction, isPending] = useActionState(sendFeedback, initialState);
+    // Records when the form appeared (bots submit far faster than humans)
+  const startedAtRef = useRef(null);
+
+  useEffect(() => {
+    if (startedAtRef.current) startedAtRef.current.value = String(Date.now());
+  }, []);
   const errors = state.errors ?? {};
 
   if (state.status === "success") {
@@ -36,7 +42,7 @@ export default function FeedbackForm({ recipeTitle }) {
   return (
     <form action={formAction} noValidate className="flex flex-col gap-6">
       <input type="hidden" name="recipe" value={recipeTitle} />
-
+      <input ref={startedAtRef} type="hidden" name="startedAt" defaultValue="" />
       {/* Honeypot: hidden from people, visible to bots */}
       <div aria-hidden="true" className="hidden">
         <label htmlFor="company">Company</label>
