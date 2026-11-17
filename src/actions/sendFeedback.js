@@ -10,6 +10,13 @@ export async function sendFeedback(previousState, formData) {
       message: "Thank you for your feedback ! Have a great day!",
     };
   }
+    // Too fast to be human (or the timestamp is missing): silently ignore
+  const startedAt = Number(formData.get("startedAt"));
+  if (!startedAt || Date.now() - startedAt < 3000) {
+    return { status: "success", message: "Thank you for your feedback!" };
+  }
+    if (name.length > 100) errors.name = "Please keep your name under 100 characters.";
+  if (email.length > 254) errors.email = "Please enter a valid email address.";
 
   const recipe = String(formData.get("recipe") ?? "").trim();
   const name = String(formData.get("name") ?? "").trim();
