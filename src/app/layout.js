@@ -29,6 +29,13 @@ export const metadata = {
   },
   description:
     "Moroccan recipes, culinary traditions and stories from the Moroccan table.",
+      openGraph: {
+    type: "website",
+    siteName: SITE.name,
+    locale: "en_US",
+    title: SITE.name,
+    description: SITE.description,
+  },
 };
 export default function RootLayout({ children }) {
   // suppressHydrationWarning: browser extensions often add attributes to <html>
