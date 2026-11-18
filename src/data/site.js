@@ -1,6 +1,7 @@
 // Site-wide information: change it here, and it updates everywhere.
 export const SITE = {
   name: "Moroccan Gastronomy",
+   url: "https://www.gastromoroccan.com",
   tagline: "A Taste of Morocco",
   description: "Recipes, traditions and stories from the Moroccan table.",
   email: "contact@gastromoroccan.com",
