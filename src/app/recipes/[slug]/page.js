@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, ChefHat, Users, Play } from "lucide-react";
 import { RECIPES, getRecipeBySlug } from "@/data/recipes";
 import FeedbackForm from "@/components/FeedbackForm";
+import { SITE } from "@/data/site";
  export const instant = false; //it tell next.js that this pageis allowed to wait for its url data
 // Pre-build one page per recipe at build time
 export function generateStaticParams() {
@@ -15,8 +16,32 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
   if (!recipe) return {};
-  return { title: recipe.title, description: recipe.description };
-}
+
+  const url = `/recipes/${recipe.slug}`;
+
+  return {
+    title: recipe.title,
+    description: recipe.description,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      siteName: SITE.name,
+      locale: "en_US",
+      url,
+      title: recipe.title,
+      description: recipe.description,
+      images: [
+        {
+          url: recipe.image.src,
+          width: recipe.image.width,
+          height: recipe.image.height,
+          alt: recipe.alt,
+        },
+      ],
+    },
+    twitter: { card: "summary_large_image" },
+  };
+} 
 
 export default async function RecipePage({ params }) {
   const {slug} = await params;
