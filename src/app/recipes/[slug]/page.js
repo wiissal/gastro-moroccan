@@ -5,7 +5,8 @@ import { ArrowLeft, Clock, ChefHat, Users, Play } from "lucide-react";
 import { RECIPES, getRecipeBySlug } from "@/data/recipes";
 import FeedbackForm from "@/components/FeedbackForm";
 import { SITE } from "@/data/site";
- export const instant = false; //it tell next.js that this pageis allowed to wait for its url data
+import { getRecipeJsonLd } from "@/lib/structured-data";
+export const instant = false; //it tell next.js that this pageis allowed to wait for its url data
 // Pre-build one page per recipe at build time
 export function generateStaticParams() {
   return RECIPES.map((recipe) => ({ slug: recipe.slug }));
@@ -41,16 +42,23 @@ export async function generateMetadata({ params }) {
     },
     twitter: { card: "summary_large_image" },
   };
-} 
+}
 
 export default async function RecipePage({ params }) {
-  const {slug} = await params;
+  const { slug } = await params;
   const recipe = getRecipeBySlug(slug);
 
   if (!recipe) notFound();
+  const jsonLd = getRecipeJsonLd(recipe);
 
   return (
     <main className="mx-auto max-w-300 px-6 pt-8 pb-20 md:px-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
+        }}
+      />
       <Link
         href="/recipes"
         className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary-dark"
@@ -68,15 +76,27 @@ export default async function RecipePage({ params }) {
 
           <ul className="flex flex-wrap gap-6 text-sm text-ink-soft">
             <li className="flex items-center gap-2">
-              <Clock size={18} className="text-accent-text" aria-hidden="true" />
+              <Clock
+                size={18}
+                className="text-accent-text"
+                aria-hidden="true"
+              />
               {recipe.prepTime}
             </li>
             <li className="flex items-center gap-2">
-              <ChefHat size={18} className="text-accent-text" aria-hidden="true" />
+              <ChefHat
+                size={18}
+                className="text-accent-text"
+                aria-hidden="true"
+              />
               {recipe.difficulty}
             </li>
             <li className="flex items-center gap-2">
-              <Users size={18} className="text-accent-text" aria-hidden="true" />
+              <Users
+                size={18}
+                className="text-accent-text"
+                aria-hidden="true"
+              />
               {recipe.servings} servings
             </li>
           </ul>
@@ -103,7 +123,10 @@ export default async function RecipePage({ params }) {
 
       {/* Ingredients + preparation */}
       <div className="mt-16 grid gap-12 lg:grid-cols-[1fr_2fr] lg:gap-20">
-        <section aria-labelledby="ingredients-title" className="lg:sticky lg:top-28 lg:self-start">
+        <section
+          aria-labelledby="ingredients-title"
+          className="lg:sticky lg:top-28 lg:self-start"
+        >
           <h2 id="ingredients-title" className="mb-6 text-2xl">
             Ingredients
           </h2>
@@ -135,16 +158,19 @@ export default async function RecipePage({ params }) {
           </ol>
         </section>
       </div>
-            {/* Feedback */}
-      <section aria-labelledby="feedback-title" className="mt-20 border-t border-line pt-14">
+      {/* Feedback */}
+      <section
+        aria-labelledby="feedback-title"
+        className="mt-20 border-t border-line pt-14"
+      >
         <div className="mx-auto max-w-2xl">
           <span className="eyebrow">Tried this recipe?</span>
           <h2 id="feedback-title" className="mt-3 mb-3 text-3xl">
             Share your <em>feedback</em>
           </h2>
           <p className="mb-8 text-ink-soft">
-            Tell us how it tasted, what you changed, or ask a question. Your message goes
-            straight to our kitchen.
+            Tell us how it tasted, what you changed, or ask a question. Your
+            message goes straight to our kitchen.
           </p>
           <FeedbackForm recipeTitle={recipe.title} />
         </div>
