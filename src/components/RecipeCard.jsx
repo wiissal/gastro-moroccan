@@ -18,18 +18,21 @@ export default function RecipeCard({ recipe }) {
 
         <div className="mt-4 flex flex-col gap-2">
           <span className="eyebrow">{recipe.category}</span>
-          <h3 className="text-2xl transition-colors group-hover:text-green-dark">
+          <h3 className="text-2xl transition-colors group-hover:text-primary">
+            {" "}
             {recipe.title}
           </h3>
-          <p className="line-clamp-2 text-sm text-ink-soft">{recipe.description}</p>
+          <p className="line-clamp-2 text-sm text-ink-soft">
+            {recipe.description}
+          </p>
 
           <div className="mt-1 flex items-center gap-5 text-xs text-ink-soft">
             <span className="flex items-center gap-1.5">
-              <Clock size={14} className="text-gold" aria-hidden="true" />
+              <Clock size={14} className="text-accent" aria-hidden="true" />{" "}
               {recipe.prepTime}
             </span>
             <span className="flex items-center gap-1.5">
-              <ChefHat size={14} className="text-gold" aria-hidden="true" />
+              <ChefHat size={14} className="text-accent" aria-hidden="true" />{" "}
               {recipe.difficulty}
             </span>
           </div>
