@@ -6,7 +6,7 @@
 
 A fast, accessible and search-friendly website celebrating Moroccan cuisine: 16 traditional recipes, food culture stories and the essential ingredients of the Moroccan kitchen.
 
-![Moroccan Gastronomy homepage](./public/screenshot.png)
+![Moroccan Gastronomy homepage](./.github/readme/homepage.png)
 
 ## ✨ Features
 
@@ -24,7 +24,13 @@ A fast, accessible and search-friendly website celebrating Moroccan cuisine: 16 
 | Accessibility | 96 | 96 |
 | Best Practices | 100 | 100 |
 | SEO | 100 | 100 |
+## 📸 Screenshots
 
+| Recipe page | Mobile |
+|---|---|
+| ![Recipe page with ingredients and steps](./.github/readme/recipe.png) | ![Mobile homepage](./.github/readme/mobile.png) |
+
+![Story page with editorial layout](./.github/readme/story-page.png)
 - **A+** security headers rating ([securityheaders.com](https://securityheaders.com))
 - **Recipe & Article structured data** (Schema.org JSON-LD) for rich results in Google and AI assistants
 - **Open Graph** previews for every recipe and story
@@ -78,4 +84,5 @@ src/
 ## 👩‍💻 Author
 
 **Wissal**, full-stack developer
-[LinkedIn]([www.linkedin.com/in/wissalouboujemaa]) · [Portfolio]([https://wiissal-portfolio.vercel.app/])
+
+[LinkedIn](https://www.linkedin.com/in/wissalouboujemaa) · [Portfolio](https://wiissal-portfolio.vercel.app/) · [GitHub](https://github.com/wiissal)

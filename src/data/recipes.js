@@ -19,9 +19,6 @@ import harcha from "@/assets/images/recipes/harcha.jpg";
 export const RECIPE_GROUPS = ["Moroccan dishes", "Pastries & sweets", "Breakfast & tea"];
 
 export const RECIPES = [
-  // ---------------------------------------------------------------------------
-  // Moroccan dishes
-  // ---------------------------------------------------------------------------
   {
     id: "harira",
     slug: "harira",
