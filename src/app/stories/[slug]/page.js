@@ -5,7 +5,7 @@ import { ArrowLeft, Clock } from "lucide-react";
 import { STORIES, getStoryBySlug } from "@/data/stories";
 import StoryCard from "@/components/StoryCard";
 import Reveal from "@/components/Reveal";
-
+import { SITE } from "@/data/site";
 // Story pages need the URL slug before rendering (same as recipes)
 export const instant = false;
 
@@ -17,7 +17,31 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const story = getStoryBySlug(slug);
   if (!story) return {};
-  return { title: story.title, description: story.excerpt };
+
+  const url = `/stories/${story.slug}`;
+
+  return {
+    title: story.title,
+    description: story.excerpt,
+    alternates: { canonical: url },
+    openGraph: {
+      type: "article",
+      siteName: SITE.name,
+      locale: "en_US",
+      url,
+      title: story.title,
+      description: story.excerpt,
+      images: [
+        {
+          url: story.image.src,
+          width: story.image.width,
+          height: story.image.height,
+          alt: story.alt,
+        },
+      ],
+    },
+    twitter: { card: "summary_large_image" },
+  };
 }
 
 function SectionText({ section }) {
