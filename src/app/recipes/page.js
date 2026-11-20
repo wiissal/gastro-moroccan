@@ -6,6 +6,7 @@ export const metadata = {
   title: "Recipes",
   description:
     "Traditional Moroccan recipes with ingredients, step-by-step preparation and videos.",
+      alternates: { canonical: "/recipes" },   
 };
 
 export default function RecipesPage() {
