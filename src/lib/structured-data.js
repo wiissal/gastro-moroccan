@@ -27,3 +27,27 @@ export function getRecipeJsonLd(recipe) {
     })),
   };
 }
+export function getSiteJsonLd() {
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": `${SITE.url}/#website`,
+        name: SITE.name,
+        url: SITE.url,
+        description: SITE.description,
+        inLanguage: "en",
+        publisher: { "@id": `${SITE.url}/#organization` },
+      },
+      {
+        "@type": "Organization",
+        "@id": `${SITE.url}/#organization`,
+        name: SITE.name,
+        url: SITE.url,
+        logo: `${SITE.url}/logo.svg`,
+        email: SITE.email,
+      },
+    ],
+  };
+}

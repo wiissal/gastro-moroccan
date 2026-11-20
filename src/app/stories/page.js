@@ -6,6 +6,7 @@ export const metadata = {
   title: "Stories",
   description:
     "Stories about Moroccan gastronomy: its history, its regions, and where to taste and learn it.",
+      alternates: { canonical: "/stories" },
 };
 
 export default function StoriesPage() {
