@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Moroccan Gastronomy 🇲🇦
 
-## Getting Started
+> Recipes, traditions and stories from the Moroccan table.
 
-First, run the development server:
+**Live site:** [www.gastromoroccan.com](https://www.gastromoroccan.com)
+
+A fast, accessible and search-friendly website celebrating Moroccan cuisine: 16 traditional recipes, food culture stories and the essential ingredients of the Moroccan kitchen.
+
+![Moroccan Gastronomy homepage](./public/screenshot.png)
+
+## ✨ Features
+
+- **16 recipes** with ingredients, step-by-step instructions and video links
+- **Food culture stories** in an editorial layout
+- **Recipe feedback form** that emails the owner (Server Actions + Resend), with honeypot and timing anti-spam protection
+- **Animated hero** with CSS motion paths, respecting `prefers-reduced-motion`
+- **Fully responsive** with an accessible mobile menu (focus management, Escape key, scroll lock)
+
+## 📊 Quality
+
+| Lighthouse | Mobile | Desktop |
+|---|---|---|
+| Performance | 91 | 99 |
+| Accessibility | 96 | 96 |
+| Best Practices | 100 | 100 |
+| SEO | 100 | 100 |
+
+- **A+** security headers rating ([securityheaders.com](https://securityheaders.com))
+- **Recipe & Article structured data** (Schema.org JSON-LD) for rich results in Google and AI assistants
+- **Open Graph** previews for every recipe and story
+- Auto-generated **sitemap** and **robots.txt**
+
+## 🛠️ Tech stack
+
+- **Framework:** Next.js 16 (App Router, Server Components, Server Actions)
+- **Styling:** Tailwind CSS v4, CSS Modules
+- **Animation:** Motion
+- **Icons:** Lucide React
+- **Email:** Resend
+- **Hosting & analytics:** Vercel (Web Analytics, Speed Insights)
+- **CI/CD:** GitHub Actions (lint + build on every PR), Dependabot, protected `main` branch
+
+## 🚀 Getting started
+
+```bash
+git clone https://github.com/wiissal/gastro-moroccan.git
+cd gastro-moroccan
+npm install
+```
+
+Create a `.env.local` file at the root:
+
+```env
+RESEND_API_KEY=your_resend_api_key
+FEEDBACK_TO_EMAIL=you@example.com
+```
+
+Then run:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 📁 Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+├── actions/      # Server Actions (feedback email)
+├── app/          # Routes, layout, sitemap, robots
+├── assets/       # Optimised images
+├── components/   # Reusable UI components
+├── data/         # Recipes, stories, ingredients, site config
+└── lib/          # Structured data helpers
+```
 
-## Learn More
+## 👩‍💻 Author
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+**Wissal**, full-stack developer
+[LinkedIn]([www.linkedin.com/in/wissalouboujemaa]) · [Portfolio]([https://wiissal-portfolio.vercel.app/])
