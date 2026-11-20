@@ -35,7 +35,7 @@ export default function Navbar() {
     return () => {
       document.body.style.overflow = previousOverflow;
       window.removeEventListener("keydown", handleKeyDown);
-      openButtonRef?.focus();
+      openButton?.focus();
     };
   }, [isOpen]);
 
