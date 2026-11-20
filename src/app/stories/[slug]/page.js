@@ -1,3 +1,6 @@
+import JsonLd from "@/components/JsonLd";
+import { getStoryJsonLd } from "@/lib/structured-data";
+
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
@@ -105,6 +108,7 @@ export default async function StoryPage({ params }) {
   const story = getStoryBySlug(slug);
 
   if (!story) notFound();
+  <JsonLd data={getStoryJsonLd(story)} />
 
   const otherStories = STORIES.filter((item) => item.slug !== story.slug);
 
