@@ -51,3 +51,23 @@ export function getSiteJsonLd() {
     ],
   };
 }
+export function getStoryJsonLd(story) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: story.title,
+    description: story.excerpt,
+    image: [`${SITE.url}${story.image.src}`],
+    articleSection: story.eyebrow,
+    inLanguage: "en",
+    timeRequired: toIsoDuration(story.readTime),
+    mainEntityOfPage: `${SITE.url}/stories/${story.slug}`,
+    author: {
+      "@type": "Organization",
+      "@id": `${SITE.url}/#organization`,
+      name: SITE.name,
+      url: SITE.url,
+    },
+    publisher: { "@id": `${SITE.url}/#organization` },
+  };
+}
