@@ -6,6 +6,7 @@ import { RECIPES, getRecipeBySlug } from "@/data/recipes";
 import FeedbackForm from "@/components/FeedbackForm";
 import { SITE } from "@/data/site";
 import { getRecipeJsonLd } from "@/lib/structured-data";
+import JsonLd from "@/components/JsonLd";
 export const instant = false; //it tell next.js that this pageis allowed to wait for its url data
 // Pre-build one page per recipe at build time
 export function generateStaticParams() {
@@ -53,12 +54,7 @@ export default async function RecipePage({ params }) {
 
   return (
     <main className="mx-auto max-w-300 px-6 pt-8 pb-20 md:px-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c"),
-        }}
-      />
+      <JsonLd data={jsonLd} />
       <Link
         href="/recipes"
         className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-primary transition-colors hover:text-primary-dark"
