@@ -20,15 +20,17 @@ function FieldError({ id, message }) {
   );
 }
 
-export default function FeedbackForm({ recipeTitle }) {
+export default function FeedbackForm({ recipeSlug }) {
   const [state, formAction, isPending] = useActionState(sendFeedback, initialState);
-    // Records when the form appeared (bots submit far faster than humans)
+  // Records when the form appeared (bots submit far faster than humans)
   const startedAtRef = useRef(null);
 
   useEffect(() => {
     if (startedAtRef.current) startedAtRef.current.value = String(Date.now());
   }, []);
+
   const errors = state.errors ?? {};
+  const values = state.values ?? {};
 
   if (state.status === "success") {
     return (
@@ -41,7 +43,7 @@ export default function FeedbackForm({ recipeTitle }) {
 
   return (
     <form action={formAction} noValidate className="flex flex-col gap-6">
-      <input type="hidden" name="recipe" value={recipeTitle} />
+      <input type="hidden" name="recipeSlug" value={recipeSlug} />
       <input ref={startedAtRef} type="hidden" name="startedAt" defaultValue="" />
       {/* Honeypot: hidden from people, visible to bots */}
       <div aria-hidden="true" className="hidden">
@@ -59,6 +61,7 @@ export default function FeedbackForm({ recipeTitle }) {
             name="name"
             type="text"
             autoComplete="name"
+            defaultValue={values.name}
             aria-invalid={Boolean(errors.name)}
             aria-describedby={errors.name ? "name-error" : undefined}
             className={fieldClasses}
@@ -75,6 +78,7 @@ export default function FeedbackForm({ recipeTitle }) {
             name="email"
             type="email"
             autoComplete="email"
+            defaultValue={values.email}
             aria-invalid={Boolean(errors.email)}
             aria-describedby={errors.email ? "email-error" : undefined}
             className={fieldClasses}
@@ -85,27 +89,36 @@ export default function FeedbackForm({ recipeTitle }) {
 
       <div>
         <label htmlFor="rating" className={labelClasses}>
-          How did it taste? <span className="font-normal normal-case tracking-normal text-ink-soft">(optional)</span>
+          How did it taste?
         </label>
-        <select id="rating" name="rating" defaultValue="" className={fieldClasses}>
+        <select
+          id="rating"
+          name="rating"
+          defaultValue={values.rating ?? ""}
+          aria-invalid={Boolean(errors.rating)}
+          aria-describedby={errors.rating ? "rating-error" : undefined}
+          className={fieldClasses}
+        >
           <option value="">Choose a rating</option>
-          <option value="5 / 5 — Delicious">Delicious</option>
-          <option value="4 / 5 — Very good">Very good</option>
-          <option value="3 / 5 — Good">Good</option>
-          <option value="2 / 5 — Okay">Okay</option>
-          <option value="1 / 5 — Not for me">Not for me</option>
+          <option value="5">★★★★★ Delicious</option>
+          <option value="4">★★★★☆ Very good</option>
+          <option value="3">★★★☆☆ Good</option>
+          <option value="2">★★☆☆☆ Okay</option>
+          <option value="1">★☆☆☆☆ Not for me</option>
         </select>
+        <FieldError id="rating-error" message={errors.rating} />
       </div>
 
       <div>
         <label htmlFor="message" className={labelClasses}>
-          Your feedback
+          Your review
         </label>
         <textarea
           id="message"
           name="message"
           rows={5}
           placeholder="How did it go? Any tips or changes you made?"
+          defaultValue={values.message}
           aria-invalid={Boolean(errors.message)}
           aria-describedby={errors.message ? "message-error" : undefined}
           className={`${fieldClasses} resize-y`}
@@ -119,13 +132,19 @@ export default function FeedbackForm({ recipeTitle }) {
         </p>
       )}
 
-      <button
-        type="submit"
-        disabled={isPending}
-        className="inline-flex min-h-12 w-fit items-center justify-center border border-primary bg-primary px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-surface transition-colors hover:bg-primary-dark disabled:cursor-wait disabled:opacity-60"
-      >
-        {isPending ? "Sending…" : "Send feedback"}
-      </button>
+      <div className="flex flex-col gap-3">
+        <button
+          type="submit"
+          disabled={isPending}
+          className="inline-flex min-h-12 w-fit items-center justify-center border border-primary bg-primary px-8 py-3.5 text-xs font-semibold uppercase tracking-[0.18em] text-surface transition-colors hover:bg-primary-dark disabled:cursor-wait disabled:opacity-60"
+        >
+          {isPending ? "Sending…" : "Send review"}
+        </button>
+        <p className="text-xs text-ink-soft">
+          Your name, rating and review may be published on this page after
+          moderation. Your email stays private.
+        </p>
+      </div>
     </form>
   );
 }

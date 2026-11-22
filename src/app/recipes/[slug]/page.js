@@ -168,7 +168,7 @@ export default async function RecipePage({ params }) {
             Tell us how it tasted, what you changed, or ask a question. Your
             message goes straight to our kitchen.
           </p>
-          <FeedbackForm recipeTitle={recipe.title} />
+          <FeedbackForm recipeSlug={recipe.slug} />
         </div>
       </section>
     </main>
