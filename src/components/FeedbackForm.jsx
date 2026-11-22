@@ -142,7 +142,7 @@ export default function FeedbackForm({ recipeSlug }) {
         </button>
         <p className="text-xs text-ink-soft">
           Your name, rating and review may be published on this page after
-          moderation. Your email stays private.
+          moderation. 
         </p>
       </div>
     </form>
