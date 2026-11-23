@@ -7,7 +7,7 @@ create table public.reviews (
   recipe_slug text not null,
   name text not null check (char_length(name) between 1 and 100),
   rating smallint not null check (rating between 1 and 5),
-  comment text not null check (char_length(comment) between 10 and 2000),
+  comment text check (comment is null or char_length(comment) between 10 and 2000),
   approved boolean not null default false,
   created_at timestamptz not null default now()
 );
