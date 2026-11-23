@@ -8,7 +8,7 @@ function toIsoDuration(text) {
   return `PT${hours ? `${hours[1]}H` : ""}${minutes ? `${minutes[1]}M` : ""}`;
 }
 
-export function getRecipeJsonLd(recipe) {
+export function getRecipeJsonLd(recipe, rating) {
   return {
     "@context": "https://schema.org",
     "@type": "Recipe",
@@ -23,6 +23,15 @@ export function getRecipeJsonLd(recipe) {
     recipeIngredient: recipe.ingredients,
     recipeInstructions: recipe.steps.map((step) => ({
       "@type": "HowToStep",
+      ...(rating?.count > 0 && {
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: rating.average,
+          reviewCount: rating.count,
+          bestRating: 5,
+          worstRating: 1,
+        },
+      }),
       text: step,
     })),
   };
