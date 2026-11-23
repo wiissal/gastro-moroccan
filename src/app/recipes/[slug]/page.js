@@ -53,10 +53,9 @@ export default async function RecipePage({ params }) {
   const recipe = getRecipeBySlug(slug);
 
   if (!recipe) notFound();
-  const jsonLd = getRecipeJsonLd(recipe);
-  const reviews = await getApprovedReviews(recipe.slug);
-  const { count, average } = summarizeReviews(reviews);
-
+ const reviews = await getApprovedReviews(recipe.slug);
+const { count, average } = summarizeReviews(reviews);
+const jsonLd = getRecipeJsonLd(recipe, { count, average });
   return (
     <main className="mx-auto max-w-300 px-6 pt-8 pb-20 md:px-10">
       <JsonLd data={jsonLd} />
