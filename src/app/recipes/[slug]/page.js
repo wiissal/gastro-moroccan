@@ -107,7 +107,7 @@ const jsonLd = getRecipeJsonLd(recipe, { count, average });
                 className="text-accent-text"
                 aria-hidden="true"
               />
-              {recipe.servings} servings
+              {recipe.servings} 
             </li>
           </ul>
 
