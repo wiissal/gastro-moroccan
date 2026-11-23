@@ -9,7 +9,8 @@ const initialState = { status: "idle", message: "", errors: {} };
 const fieldClasses =
   "w-full border border-line bg-surface px-4 py-3 text-sm text-ink transition-colors placeholder:text-ink-soft/60 focus:border-primary focus:outline-none aria-invalid:border-red-700";
 
-const labelClasses = "mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink";
+const labelClasses =
+  "mb-2 block text-xs font-semibold uppercase tracking-[0.12em] text-ink";
 
 function FieldError({ id, message }) {
   if (!message) return null;
@@ -21,7 +22,10 @@ function FieldError({ id, message }) {
 }
 
 export default function FeedbackForm({ recipeSlug }) {
-  const [state, formAction, isPending] = useActionState(sendFeedback, initialState);
+  const [state, formAction, isPending] = useActionState(
+    sendFeedback,
+    initialState,
+  );
   // Records when the form appeared (bots submit far faster than humans)
   const startedAtRef = useRef(null);
 
@@ -34,8 +38,15 @@ export default function FeedbackForm({ recipeSlug }) {
 
   if (state.status === "success") {
     return (
-      <p role="status" className="flex items-center gap-3 border border-line bg-surface-alt p-6 text-ink">
-        <CircleCheck size={22} className="shrink-0 text-primary" aria-hidden="true" />
+      <p
+        role="status"
+        className="flex items-center gap-3 border border-line bg-surface-alt p-6 text-ink"
+      >
+        <CircleCheck
+          size={22}
+          className="shrink-0 text-primary"
+          aria-hidden="true"
+        />
         {state.message}
       </p>
     );
@@ -44,11 +55,22 @@ export default function FeedbackForm({ recipeSlug }) {
   return (
     <form action={formAction} noValidate className="flex flex-col gap-6">
       <input type="hidden" name="recipeSlug" value={recipeSlug} />
-      <input ref={startedAtRef} type="hidden" name="startedAt" defaultValue="" />
+      <input
+        ref={startedAtRef}
+        type="hidden"
+        name="startedAt"
+        defaultValue=""
+      />
       {/* Honeypot: hidden from people, visible to bots */}
       <div aria-hidden="true" className="hidden">
         <label htmlFor="company">Company</label>
-        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+        <input
+          id="company"
+          name="company"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+        />
       </div>
 
       <div className="grid gap-6 sm:grid-cols-2">
@@ -100,18 +122,21 @@ export default function FeedbackForm({ recipeSlug }) {
           className={fieldClasses}
         >
           <option value="">Choose a rating</option>
-          <option value="5">★★★★★ Delicious</option>
-          <option value="4">★★★★☆ Very good</option>
-          <option value="3">★★★☆☆ Good</option>
-          <option value="2">★★☆☆☆ Okay</option>
-          <option value="1">★☆☆☆☆ Not for me</option>
+          <option value="5">Delicious</option>
+          <option value="4">Very good</option>
+          <option value="3">Good</option>
+          <option value="2">Okay</option>
+          <option value="1">Not for me</option>
         </select>
         <FieldError id="rating-error" message={errors.rating} />
       </div>
 
       <div>
         <label htmlFor="message" className={labelClasses}>
-          Your review
+          Your review{" "}
+          <span className="font-normal normal-case tracking-normal text-ink-soft">
+            (optional)
+          </span>
         </label>
         <textarea
           id="message"
@@ -141,8 +166,8 @@ export default function FeedbackForm({ recipeSlug }) {
           {isPending ? "Sending…" : "Send review"}
         </button>
         <p className="text-xs text-ink-soft">
-          Your name, rating and review may be published on this page after
-          moderation. Your email stays private.
+          Ratings appear right away. Written reviews are published after a quick
+          check. Your email stays private.
         </p>
       </div>
     </form>
