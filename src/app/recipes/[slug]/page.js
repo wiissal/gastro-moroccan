@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 import { ArrowLeft, Clock, ChefHat, Users, Play } from "lucide-react";
 import { RECIPES, getRecipeBySlug } from "@/data/recipes";
 import FeedbackForm from "@/components/FeedbackForm";
+import ReviewList from "@/components/ReviewList";
+import StarRating from "@/components/StarRating";
+import { getApprovedReviews, summarizeReviews } from "@/lib/reviews";
 import { SITE } from "@/data/site";
 import { getRecipeJsonLd } from "@/lib/structured-data";
 import JsonLd from "@/components/JsonLd";
@@ -51,6 +54,8 @@ export default async function RecipePage({ params }) {
 
   if (!recipe) notFound();
   const jsonLd = getRecipeJsonLd(recipe);
+  const reviews = await getApprovedReviews(recipe.slug);
+  const { count, average } = summarizeReviews(reviews);
 
   return (
     <main className="mx-auto max-w-300 px-6 pt-8 pb-20 md:px-10">
@@ -69,7 +74,17 @@ export default async function RecipePage({ params }) {
           <span className="eyebrow">{recipe.category}</span>
           <h1>{recipe.title}</h1>
           <p className="text-lg text-ink-soft">{recipe.description}</p>
-
+          {count > 0 && (
+            <a
+              href="#reviews"
+              className="flex items-center gap-2 text-sm text-ink-soft transition-colors hover:text-primary"
+            >
+              <StarRating rating={average} />
+              <span>
+                {average} · {count} {count === 1 ? "review" : "reviews"}
+              </span>
+            </a>
+          )}
           <ul className="flex flex-wrap gap-6 text-sm text-ink-soft">
             <li className="flex items-center gap-2">
               <Clock
@@ -154,6 +169,20 @@ export default async function RecipePage({ params }) {
           </ol>
         </section>
       </div>
+      {/* Reviews */}
+      <section
+        id="reviews"
+        aria-labelledby="reviews-title"
+        className="mt-20 scroll-mt-28 border-t border-line pt-14"
+      >
+        <div className="mx-auto max-w-2xl">
+          <span className="eyebrow">From our readers</span>
+          <h2 id="reviews-title" className="mt-3 mb-8 text-3xl">
+            What cooks are <em>saying</em>
+          </h2>
+          <ReviewList reviews={reviews} />
+        </div>
+      </section>
       {/* Feedback */}
       <section
         aria-labelledby="feedback-title"
@@ -162,11 +191,11 @@ export default async function RecipePage({ params }) {
         <div className="mx-auto max-w-2xl">
           <span className="eyebrow">Tried this recipe?</span>
           <h2 id="feedback-title" className="mt-3 mb-3 text-3xl">
-            Share your <em>feedback</em>
+            Share your <em>review</em>
           </h2>
           <p className="mb-8 text-ink-soft">
-            Tell us how it tasted, what you changed, or ask a question. Your
-            message goes straight to our kitchen.
+            Tell us how it tasted or what you changed. Reviews appear here after
+            a quick check.
           </p>
           <FeedbackForm recipeSlug={recipe.slug} />
         </div>
