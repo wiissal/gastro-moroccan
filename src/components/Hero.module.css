@@ -1,6 +1,6 @@
 /* The stage the cards travel across */
 .arc {
-  --travel-duration: 52s;
+  --travel-duration: 45s;
   position: relative;
   left: 50%;
   width: 1200px;
@@ -14,8 +14,8 @@
   top: 0;
   left: 0;
   width: 170px;
-  offset-path: path("M -500 520 Q 600 -220 1700 520");
-  offset-rotate: auto;
+  offset-path: path("M -300 450 Q 600 -150 1500 450");
+    offset-rotate: auto;
   animation: travel var(--travel-duration) linear infinite;
   animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
   will-change: offset-distance, opacity;
@@ -32,7 +32,7 @@
 .card:hover,
 .card:focus-within {
   z-index: 2;
-  scale: 1.1;
+  scale: 1.06;
   offset-rotate: 0deg;
 }
 
