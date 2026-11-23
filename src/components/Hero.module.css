@@ -1,6 +1,6 @@
 /* The stage the cards travel across */
 .arc {
-  --travel-duration: 40s;
+  --travel-duration: 52s;
   position: relative;
   left: 50%;
   width: 1200px;
@@ -14,25 +14,41 @@
   top: 0;
   left: 0;
   width: 170px;
-  offset-path: path("M -200 400 Q 600 -100 1400 400");
+  offset-path: path("M -500 520 Q 600 -220 1700 520");
   offset-rotate: auto;
   animation: travel var(--travel-duration) linear infinite;
   animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
   will-change: offset-distance, opacity;
-  transition: scale 600ms cubic-bezier(0.22, 1, 0.36, 1);
+  transition: scale 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.arc:hover .card {
+/* Hovering or tabbing into the arc pauses every card, so nothing collides */
+.arc:hover .card,
+.arc:focus-within .card {
   animation-play-state: paused;
 }
 
-.card:hover {
+/* The selected card straightens up, grows and comes to the front */
+.card:hover,
+.card:focus-within {
   z-index: 2;
-  scale: 1.08;
+  scale: 1.1;
+  offset-rotate: 0deg;
+}
+
+.cardLink {
+  display: block;
+  border-radius: 0.75rem;
 }
 
 .cardInner {
+  transition: box-shadow 400ms ease;
   animation: enter 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 120ms) both;
+}
+
+.card:hover .cardInner,
+.card:focus-within .cardInner {
+  box-shadow: 0 20px 40px rgb(17 17 17 / 0.18);
 }
 
 @keyframes travel {
