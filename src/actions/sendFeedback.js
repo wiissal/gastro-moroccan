@@ -7,7 +7,8 @@ import { getRecipeBySlug } from "@/data/recipes";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const SUCCESS = {
   status: "success",
-  message: "Thank you for your review! It will appear on this page once approved.",
+  message:
+    "Thank you for your review! It will appear on this page once approved.",
 };
 export async function sendFeedback(previousState, formData) {
   // Honeypot: anti-spam field, no captcha
@@ -32,18 +33,28 @@ export async function sendFeedback(previousState, formData) {
   // Validate on the server side: never trust what the browser sends
   const errors = {};
   if (!name) errors.name = "Please enter your name.";
-  if (name.length > 100) errors.name = "Please keep your name under 100 characters.";
-  if (!EMAIL_PATTERN.test(email)) errors.email = "Please enter a valid email address.";
+  if (name.length > 100)
+    errors.name = "Please keep your name under 100 characters.";
+  if (!EMAIL_PATTERN.test(email))
+    errors.email = "Please enter a valid email address.";
   if (email.length > 254) errors.email = "Please enter a valid email address.";
-  if (!Number.isInteger(rating) || rating < 1 || rating > 5) errors.rating = "Please choose a rating.";
-  if (message.length < 10) errors.message = "Please write at least 10 characters in your message.";
-  if (message.length > 2000) errors.message = "Please keep your message under 2000 characters.";
-
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5)
+    errors.rating = "Please choose a rating.";
+  if (message && message.length < 10)
+    errors.message = "Please write at least 10 characters, or leave it empty.";
+  if (message.length > 2000)
+    errors.message = "Please keep your message under 2000 characters.";
   // Sent back so the form keeps what the visitor typed
   const values = { name, email, rating: formData.get("rating") ?? "", message };
-
+//a rating alone has nothing to moderate so iots published right away 
+const ratingOnly = !message;
   if (Object.keys(errors).length > 0) {
-    return { status: "error", message: "Please check the form.", errors, values };
+    return {
+      status: "error",
+      message: "Please check the form.",
+      errors,
+      values,
+    };
   }
 
   // 1. Save the review (hidden until you approve it)
@@ -52,7 +63,8 @@ export async function sendFeedback(previousState, formData) {
     recipe_slug: recipe.slug,
     name,
     rating,
-    comment: message,
+    comment: message || null,
+    approved : ratingOnly
   });
 
   if (dbError) {
@@ -77,7 +89,7 @@ export async function sendFeedback(previousState, formData) {
         `From: ${name} <${email}>`,
         `Rating: ${rating}/5`,
         "",
-        message,
+        message || "(Rating only: published automatically)",
         "",
         "Approve it in Supabase: Table Editor → reviews → set approved to true.",
       ].join("\n"),
@@ -87,5 +99,7 @@ export async function sendFeedback(previousState, formData) {
     console.error("Review notification email failed:", error);
   }
 
-  return SUCCESS;
+  return ratingOnly 
+  ? {status: "success" , message: "Thank you for your rating! It has been published . Have a lovely day ."}
+  : SUCCESS;
 }
