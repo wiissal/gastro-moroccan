@@ -4,7 +4,7 @@ import { createPublicClient } from "@/lib/supabase";
 // Approved reviews for one recipe, newest first
 export async function getApprovedReviews(recipeSlug) {
   "use cache";
-  cacheLife("hours");
+  cacheLife("minutes");
   cacheTag("reviews", `reviews-${recipeSlug}`);
 
   // No keys (e.g. in CI): show no reviews instead of crashing the build
