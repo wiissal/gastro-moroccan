@@ -32,7 +32,7 @@
 .card:hover,
 .card:focus-within {
   z-index: 2;
-  scale: 1.06;
+  scale: 1.15;
   offset-rotate: 0deg;
 }
 
@@ -79,4 +79,11 @@
     animation-name: none;
     offset-distance: calc((var(--i) + 0.5) * 100% / var(--total));
   }
+}
+.cardLink {
+  transition: opacity 400ms ease;
+}
+
+.arc:hover .card:not(:hover) .cardLink {
+  opacity: 0.6;
 }
