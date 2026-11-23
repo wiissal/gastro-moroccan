@@ -21,12 +21,19 @@ export default function ReviewList({ reviews }) {
         <li key={review.id} className="flex flex-col gap-2 py-6">
           <div className="flex flex-wrap items-center justify-between gap-2">
             <p className="font-semibold text-ink">{review.name}</p>
-            <time dateTime={review.created_at} className="text-xs text-ink-soft">
+            <time
+              dateTime={review.created_at}
+              className="text-xs text-ink-soft"
+            >
               {dateFormatter.format(new Date(review.created_at))}
             </time>
           </div>
           <StarRating rating={review.rating} />
-          <p className="whitespace-pre-line text-ink-soft">{review.comment}</p>
+          {review.comment && (
+            <p className="whitespace-pre-line text-ink-soft">
+              {review.comment}
+            </p>
+          )}{" "}
         </li>
       ))}
     </ul>
