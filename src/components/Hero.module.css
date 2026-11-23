@@ -15,30 +15,31 @@
   left: 0;
   width: 170px;
   offset-path: path("M -300 450 Q 600 -150 1500 450");
-    offset-rotate: auto;
+  offset-rotate: auto;
   animation: travel var(--travel-duration) linear infinite;
   animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
   will-change: offset-distance, opacity;
-  transition: scale 400ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-/* Hovering or tabbing into the arc pauses every card, so nothing collides */
-.arc:hover .card,
-.arc:focus-within .card {
-  animation-play-state: paused;
-}
-
-/* The selected card straightens up, grows and comes to the front */
-.card:hover,
-.card:focus-within {
-  z-index: 2;
-  scale: 1.15;
-  offset-rotate: 0deg;
-}
-
+/* The inner link grows at the top of the arc (same timing as the card) */
 .cardLink {
   display: block;
   border-radius: 0.75rem;
+  animation: spotlight var(--travel-duration) linear infinite;
+  animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
+}
+
+/* Hovering or tabbing into the arc pauses every card */
+.arc:hover .card,
+.arc:hover .cardLink,
+.arc:focus-within .card,
+.arc:focus-within .cardLink {
+  animation-play-state: paused;
+}
+
+.card:hover,
+.card:focus-within {
+  z-index: 3;
 }
 
 .cardInner {
@@ -51,11 +52,24 @@
   box-shadow: 0 20px 40px rgb(17 17 17 / 0.18);
 }
 
+/* Movement along the arc; the card at the top comes to the front */
 @keyframes travel {
-  0% { offset-distance: 0%; opacity: 0; }
+  0% { offset-distance: 0%; opacity: 0; z-index: 0; }
   8% { opacity: 1; }
+  43% { z-index: 0; }
+  50% { z-index: 2; }
+  57% { z-index: 0; }
   92% { opacity: 1; }
-  100% { offset-distance: 100%; opacity: 0; }
+  100% { offset-distance: 100%; opacity: 0; z-index: 0; }
+}
+
+/* Grows at the top; neighbours shrink a little to make room */
+@keyframes spotlight {
+  0%, 36% { scale: 1; }
+  39% { scale: 0.94; }
+  50% { scale: 1.12; }
+  61% { scale: 0.94; }
+  64%, 100% { scale: 1; }
 }
 
 @keyframes enter {
@@ -79,11 +93,8 @@
     animation-name: none;
     offset-distance: calc((var(--i) + 0.5) * 100% / var(--total));
   }
-}
-.cardLink {
-  transition: opacity 400ms ease;
-}
 
-.arc:hover .card:not(:hover) .cardLink {
-  opacity: 0.6;
+  .cardLink {
+    animation: none;
+  }
 }
