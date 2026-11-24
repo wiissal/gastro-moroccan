@@ -4,7 +4,7 @@ import chicken from "@/assets/images/hero/hero-chicken.jpg";
 import tagine from "@/assets/images/hero/hero-tagine.jpg";
 import pastries from "@/assets/images/hero/hero-pastries.jpg";
 import couscous from "@/assets/images/hero/hero-couscous.jpg";
-import mintTea from "@/assets/images/hero/hero-mint-tea.jpg";
+import rfissa from "@/assets/images/recipes/rfissa.jpg";
 import harira from "@/assets/images/hero/hero-harira.jpg";
 import chebakia from "@/assets/images/hero/hero-chebakia.jpg";
 // Cards travel left → right along the hero arc, in this order.
@@ -58,12 +58,12 @@ export const HERO_CARDS = [
     image: couscous,
     alt: "Couscous topped with seven vegetables",
   },
-  {
-    id: "mint-tea",
-    title: "Mint Tea",
-    slug: "mint-tea",
-    image: mintTea,
-    alt: "Moroccan mint tea poured from a silver teapot",
+    {
+    id: "rfissa",
+    title: "Rfissa",
+    slug: "rfissa",
+    image: rfissa,
+    alt: "Rfissa: shredded msemen with chicken, lentils and fenugreek broth",
   },
   {
     id: "harira",
