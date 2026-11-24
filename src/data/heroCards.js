@@ -7,16 +7,18 @@ import couscous from "@/assets/images/hero/hero-couscous.jpg";
 import rfissa from "@/assets/images/recipes/rfissa.jpg";
 import harira from "@/assets/images/hero/hero-harira.jpg";
 import chebakia from "@/assets/images/hero/hero-chebakia.jpg";
+
 // Cards travel left → right along the hero arc, in this order.
+// Each slug must match a slug in src/data/recipes.js exactly.
 export const HERO_CARDS = [
   {
     id: "msemen",
     title: "Msemen & Amlou",
-    slug: "msmen-&-amlou",
+    slug: "msemen",
     image: msemen,
     alt: "Golden square msemen flatbreads served with honey and almonds",
   },
-    {
+  {
     id: "chebakia",
     title: "Chebakia",
     slug: "chebakia",
@@ -26,21 +28,21 @@ export const HERO_CARDS = [
   {
     id: "pastilla",
     title: "Pastilla",
-    slug: "pastilla",
+    slug: "chicken-pastilla",
     image: pastilla,
     alt: "Pastilla dusted with powdered sugar and cinnamon",
   },
   {
     id: "chicken",
     title: "Chicken & Olives",
-    slug: "chicken-&-olives",
+    slug: "chicken-tagine-preserved-lemon-olives",
     image: chicken,
     alt: "Moroccan chicken with green olives and fresh herbs",
   },
   {
     id: "tagine",
     title: "Tagine with Prunes",
-    slug:"tagine-with-prunes",
+    slug: "tagine-with-prunes",
     image: tagine,
     alt: "Tagine with prunes and toasted almonds in a clay pot",
   },
@@ -54,11 +56,11 @@ export const HERO_CARDS = [
   {
     id: "couscous",
     title: "Couscous",
-    slug: "couscous",
+    slug: "seven-vegetable-couscous",
     image: couscous,
     alt: "Couscous topped with seven vegetables",
   },
-    {
+  {
     id: "rfissa",
     title: "Rfissa",
     slug: "rfissa",
