@@ -41,7 +41,7 @@ export default function HeroIntro() {
         </motion.p>
 
         <motion.div variants={item} className="mt-2 flex flex-wrap justify-center gap-4">
-          <Button href="/#recipes">Explore recipes</Button>
+          <Button href="#recipes">Explore recipes</Button>
           <Button href="/#about" variant="ghost">
             Our story
           </Button>
