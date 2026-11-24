@@ -31,7 +31,7 @@ export default async function Footer() {
         {/* Brand */}
         <div className="flex flex-col gap-4">
           <Link href="/" className="flex items-center gap-2 font-heading text-2xl text-ivory">
-            <Image src="/logo.svg" alt="" width={40} height={40} />
+            <Image src="/logo-light.svg" alt="" width={40} height={40} />
             <span>{SITE.name}</span>
           </Link>
           <p className="font-heading text-lg italic text-ivory/80">{SITE.tagline}</p>
