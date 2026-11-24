@@ -12,7 +12,7 @@ export default function Hero() {
       <ul className={styles.arc} style={{ "--total": HERO_CARDS.length }}>
         {HERO_CARDS.map((card, index) => (
           <li key={card.id} className={styles.card} style={{ "--i": index }}>
-            <Link href="{`/recipes/${card.slug}`}" className="{styles.cardLink}">
+            <Link href={`/recipes/${card.slug}`} className={styles.cardLink}>
             <figure
               className={`${styles.cardInner} rounded-xl bg-white p-2 pb-3 shadow-card`}
             >
