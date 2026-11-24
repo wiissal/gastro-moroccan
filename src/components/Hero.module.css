@@ -79,12 +79,12 @@
 
 @media (max-width: 768px) {
   .arc {
-    height: 210px;
+    height: 240px;
   }
 
   .card {
-    width: 120px;
-    offset-path: path("M 80 330 Q 600 -150 1120 330");
+    width: 104px;
+    offset-path: path("M -60 410 Q 600 -200 1260 410");
   }
 }
 
