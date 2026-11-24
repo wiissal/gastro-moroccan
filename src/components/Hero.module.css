@@ -67,7 +67,7 @@
 @keyframes spotlight {
   0%, 36% { scale: 1; }
   39% { scale: 0.94; }
-  50% { scale: 1.12; }
+  50% { scale: 1.2; }
   61% { scale: 0.94; }
   64%, 100% { scale: 1; }
 }
