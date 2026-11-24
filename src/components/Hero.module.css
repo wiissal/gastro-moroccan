@@ -83,7 +83,7 @@
   }
 
   .card {
-    width: 104px;
+    width: 110px;
     offset-path: path("M -60 410 Q 600 -200 1260 410");
   }
 }
