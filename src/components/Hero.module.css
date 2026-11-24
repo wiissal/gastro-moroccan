@@ -1,6 +1,6 @@
 /* The stage the cards travel across */
 .arc {
-  --travel-duration: 40s;
+  --travel-duration: 45s;
   position: relative;
   left: 50%;
   width: 1200px;
@@ -14,32 +14,62 @@
   top: 0;
   left: 0;
   width: 170px;
-  offset-path: path("M -200 400 Q 600 -100 1400 400");
+  offset-path: path("M -300 450 Q 600 -150 1500 450");
   offset-rotate: auto;
   animation: travel var(--travel-duration) linear infinite;
   animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
   will-change: offset-distance, opacity;
-  transition: scale 600ms cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.arc:hover .card {
+/* The inner link grows at the top of the arc (same timing as the card) */
+.cardLink {
+  display: block;
+  border-radius: 0.75rem;
+  animation: spotlight var(--travel-duration) linear infinite;
+  animation-delay: calc(var(--travel-duration) * var(--i) / var(--total) * -1);
+}
+
+/* Hovering or tabbing into the arc pauses every card */
+.arc:hover .card,
+.arc:hover .cardLink,
+.arc:focus-within .card,
+.arc:focus-within .cardLink {
   animation-play-state: paused;
 }
 
-.card:hover {
-  z-index: 2;
-  scale: 1.08;
+.card:hover,
+.card:focus-within {
+  z-index: 3;
 }
 
 .cardInner {
+  transition: box-shadow 400ms ease;
   animation: enter 900ms cubic-bezier(0.22, 1, 0.36, 1) calc(var(--i) * 120ms) both;
 }
 
+.card:hover .cardInner,
+.card:focus-within .cardInner {
+  box-shadow: 0 20px 40px rgb(17 17 17 / 0.18);
+}
+
+/* Movement along the arc; the card at the top comes to the front */
 @keyframes travel {
-  0% { offset-distance: 0%; opacity: 0; }
+  0% { offset-distance: 0%; opacity: 0; z-index: 0; }
   8% { opacity: 1; }
+  43% { z-index: 0; }
+  50% { z-index: 2; }
+  57% { z-index: 0; }
   92% { opacity: 1; }
-  100% { offset-distance: 100%; opacity: 0; }
+  100% { offset-distance: 100%; opacity: 0; z-index: 0; }
+}
+
+/* Grows at the top; neighbours shrink a little to make room */
+@keyframes spotlight {
+  0%, 36% { scale: 1; }
+  39% { scale: 0.94; }
+  50% { scale: 1.2; }
+  61% { scale: 0.94; }
+  64%, 100% { scale: 1; }
 }
 
 @keyframes enter {
@@ -62,5 +92,9 @@
   .card {
     animation-name: none;
     offset-distance: calc((var(--i) + 0.5) * 100% / var(--total));
+  }
+
+  .cardLink {
+    animation: none;
   }
 }
