@@ -21,18 +21,12 @@ export function getRecipeJsonLd(recipe, rating) {
     recipeYield: recipe.servings,
     totalTime: toIsoDuration(recipe.prepTime),
     recipeIngredient: recipe.ingredients,
-    recipeInstructions: recipe.steps.map((step) => ({
+       keywords: `${recipe.title}, Moroccan ${recipe.category.toLowerCase()}, Moroccan recipe`,
+    recipeInstructions: recipe.steps.map((step, index) => ({
       "@type": "HowToStep",
-      ...(rating?.count > 0 && {
-        aggregateRating: {
-          "@type": "AggregateRating",
-          ratingValue: rating.average,
-          reviewCount: rating.count,
-          bestRating: 5,
-          worstRating: 1,
-        },
-      }),
+      name: `Step ${index + 1}`,
       text: step,
+      url: `${SITE.url}/recipes/${recipe.slug}#step-${index + 1}`,
     })),
   };
 }

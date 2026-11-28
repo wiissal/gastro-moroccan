@@ -155,7 +155,7 @@ const jsonLd = getRecipeJsonLd(recipe, { count, average });
           </h2>
           <ol className="flex flex-col gap-8">
             {recipe.steps.map((step, index) => (
-              <li key={index} className="flex gap-5">
+              <li key={index} id={`step-${index + 1}`} className="flex scroll-mt-28 gap-5">
                 <span
                   aria-hidden="true"
                   className="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary text-sm font-semibold text-surface"
